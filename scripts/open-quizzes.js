@@ -1,6 +1,5 @@
 let questions = [];
 let answers = [];
-let validateAnswer;
 
 function openUserQuizz(index){
     const quiz = userQuizzList[index];
@@ -55,10 +54,6 @@ function openUserQuizz(index){
         console.log(question.answers);
     });
     /* pega respostas */
-    for (let i = 0; i<quiz.questions.length; i++){
-        answers = quiz.questions[i].answers;
-        console.log(answers);
-    }
 
 }
 
@@ -113,8 +108,11 @@ function openQuizz (index){
                         </div>
                 </div>
         `;
-        
     });
+    for (let i = 0; i<questions.length; i++){
+        answers = questions[i];
+        console.log (answers);
+    }
     
 }
 
@@ -123,18 +121,20 @@ function sorter() {
 }
 
 function checkAnswer(element) {
-    let teste = element.parentNode;
-    console.log(teste);
-
-        if (teste.classList.contains("true")) {
-            console.log("está certo");
-            teste.querySelector("h3").classList.add("correct-answer");
+    let divAnswer = element.parentNode;
+    console.log(divAnswer);
+        if (divAnswer.classList.contains("true")) {
+            divAnswer.querySelector("h3").classList.add("correct-answer");
         } else {
-            console.log("está errado");
-            teste.querySelector("h3").classList.add("wrong-answer");
+            divAnswer.querySelector("h3").classList.add("wrong-answer");
         }
+        toggleAnswers(divAnswer);
+}
 
-    //answers.forEach(answer => {
+function toggleAnswers(divAnswer){
+    let answer = document.queryselectorAll("h3");
 
-    //})
+    if (answer.classList.contains("correct-answer")){
+
+    }
 }
