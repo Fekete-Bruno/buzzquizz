@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-/* CSS ainda está bem básico */
-
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #fafafa;
@@ -22,6 +20,7 @@ header{
     z-index: 1;
 }
 
+/*PÁGINA 1*/
 .main-content {
     display: flex;
     flex-direction: column;
@@ -31,7 +30,7 @@ header{
 }
 
 .create-quizz{
-    width: 70%;
+    width: 60%;
     border: 1px dotted #D4D4D4;
     display: flex;
     flex-direction: column;
@@ -59,13 +58,6 @@ header{
     border: 1px dotted #EC362D;
     border-radius: 40px;
 }
-
- /*TIRAR O COMENTÁRIO PARA VER A TELA 2*/
-/*
-.main-content{
-    display: none;
-} 
-*/
 
 .user-quizz-container{
     display: flex;
@@ -128,12 +120,12 @@ header{
     border-radius: 5px;
 }
 
-
-/* PARA MANTER A TELA 1 DURANTE O COMEÇO*/
-/*.quizz-content{
+ /*ESCONDER PÁGINA 1*/
+/*.main-content{
     display: none;
 }*/
 
+/*PÁGINA 2*/
 .quizz-content{
     margin-top: 63px;
     display: flex;
@@ -147,6 +139,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     width: 100%;
     color: #FFFFFF;
     font-size: 39px;
@@ -164,8 +157,8 @@ header{
     background-color: #ffffff;
     width: 60%;
     display: flex;
-    align-items: space-evenly;
-    justify-content: space-evenly;
+    align-items: space-around;
+    justify-content: space-around;
     margin-bottom: 30px;
     flex-flow: row wrap;
 }
@@ -174,11 +167,13 @@ header{
     justify-content: space-between;
     align-items: space-between;
     margin: 0 59px;
+    width: 80%;
 }
 .question-title{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 130px;
     width: 90%;
     background-color: #434CA0;
@@ -189,14 +184,17 @@ header{
 }
 
 h3{
-    padding-left: 59px;
     padding-top: 8px;
     padding-bottom: 10px;
-}
-.answer {
     color: #000000;
     font-size: 20px;
     font-weight: 700;
+}
+.answer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 50%;
 }
 
 .answer-container{
@@ -204,3 +202,8 @@ h3{
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+/* ESCONDER PÁGINA 2 */
+/*.quizz-content{
+    display: none;
+}*/
