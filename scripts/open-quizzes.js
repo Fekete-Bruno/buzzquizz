@@ -31,28 +31,28 @@ function openUserQuizz(index){
                 </div>
 
                 <div class="answer-container">
-                        <div class="answer">
+                        <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
                             <img src="${question.answers[0].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[0].text}</h3>
                         </div>
 
-                        <div class="answer">
+                        <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
                             <img src="${question.answers[1].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[1].text}</h3>
                         </div>
 
-                        <div class="answer">
+                        <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
                             <img src="${question.answers[2].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[2].text}</h3>
                         </div>
 
-                        <div class="answer">
+                        <div class="answer ${question.answers[3].isCorrectAnswer.toString()}">
                             <img src="${question.answers[3].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[3].text}</h3>
                         </div>
                 </div>
         `;
-
+        console.log(question.answers);
     });
     /* pega respostas */
     for (let i = 0; i<=quiz.questions.length-1; i++){
@@ -96,22 +96,22 @@ function openQuizz (index){
                 </div>
 
                 <div class="answer-container">
-                        <div class="answer">
+                        <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
                             <img src="${question.answers[0].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[0].text}</h3>
                         </div>
 
-                        <div class="answer">
+                        <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
                             <img src="${question.answers[1].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[1].text}</h3>
                         </div>
 
-                        <div class="answer">
+                        <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
                             <img src="${question.answers[2].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[2].text}</h3>
                         </div>
 
-                        <div class="answer">
+                        <div class="answer ${question.answers[3].isCorrectAnswer.toString()}">
                             <img src="${question.answers[3].image}" alt="" onclick="checkAnswer()">
                             <h3 onclick="checkAnswer()">${question.answers[3].text}</h3>
                         </div>
