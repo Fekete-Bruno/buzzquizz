@@ -44,7 +44,6 @@
     }
     
     .all-quizzes{
-        background-color: blue;
         display: flex;
         margin-bottom: 10px;
         width: 90vw;
@@ -72,5 +71,4 @@
     h3{
         font-size: 13px;
     }
-    
 }
