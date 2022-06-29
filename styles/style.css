@@ -61,13 +61,16 @@ header{
 
 .user-quizz-container{
     display: flex;
+    width: 75%;
     margin-bottom: 10px;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 .my-quizzes{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    width: 1100px;
+    width: 75%;
     font-size: 20px;
     font-weight: 700;
     color: #000000;
@@ -82,7 +85,7 @@ header{
 .all-quizzes{
     display: flex;
     margin-bottom: 10px;
-    width: 1100px;
+    width: 75%;
     font-size: 20px;
     font-weight: 700;
     color: #000000;
@@ -90,6 +93,9 @@ header{
 
 .quizz-container{
     display: flex;
+    width: 75%;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 .quizz{
