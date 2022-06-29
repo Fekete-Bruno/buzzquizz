@@ -45,14 +45,28 @@ function showQuizzes(){
         userQuizzList.forEach(quiz => {
             userQuizzContainer.innerHTML += `
                                             <div class="quizz">
-                                                <img src="${quiz.image}.jpg" alt="">
+                                                <img src="${quiz.image}" alt="">
                                                 <h1>${quiz.title}</h1>
                                             </div>
                                             `            
         });
-        
-                    
+
     }
+
+
+    mainContent.innerHTML +=  `
+                    <div class="all-quizzes">TODOS OS QUIZZES</div>
+                    <div class="quizz-container"></div>
+                    `;
+    let quizzContainer = document.querySelector('.quizz-container');
+    quizzList.forEach(quiz => {
+        quizzContainer.innerHTML += `
+                                        <div class="quizz">
+                                            <img src="${quiz.image}" alt="">
+                                            <h1>${quiz.title}</h1>
+                                        </div>
+                                        `            
+    });
 }
 
 function errorLog(error){
