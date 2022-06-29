@@ -2,6 +2,7 @@
     /*PÁGINA 1*/
     .user-quizz-container{
         flex-direction: column;
+        flex-wrap: nowrap;
         justify-content: flex-start;
         width: 90vw;
         height: 90vw;
@@ -11,6 +12,7 @@
 
     .quizz-container{
         flex-direction: column;
+        flex-wrap: nowrap;
         justify-content: flex-start;
         width: 90vw;
         height: 90vw;
