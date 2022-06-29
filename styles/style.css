@@ -10,51 +10,195 @@ body{
 header{
     background-color: #EC362D;
     color: white;
+    font-size: 37px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    padding: 13px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
-/** Tirar comentário para ver a tela 2
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.create-quizz{
+    width: 70%;
+    border: 1px dotted #D4D4D4;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 181px;
+    margin-bottom: 40px;
+}
+
+.create-quizz p{
+    font-size: 20px;
+    font-weight: 400;
+    color: #B9B9B9;
+}
+.create-quizz div {
+    font-size: 21px;
+    font-weight: 400;
+    color: #EC362D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 40px;
+    border: 1px dotted #EC362D;
+    border-radius: 40px;
+}
+
+ /*TIRAR O COMENTÁRIO PARA VER A TELA 2*/
 .main-content{
     display: none;
 }
-**/
-.user-quiz-container{
+
+.user-quizz-container{
+    display: flex;
+    margin-bottom: 10px;
+}
+.my-quizzes{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 1100px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+}
+.my-quizzes ion-icon{
+    color: red;
+    height: 31px;
+    width: 30px;
+    margin-left: 10px;
+}
+
+.all-quizzes{
+    display: flex;
+    margin-bottom: 10px;
+    width: 1100px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.quizz-container{
     display: flex;
 }
 
-.quiz-container{
-    display: flex;
-}
-
-.quiz{
+.quizz{
     position:relative;
+    margin-right: 15px;
 }
 
-.quiz h1{
-    color: white;
-    position: absolute;
-    bottom:10px;
-    left: 10px;
-}
-
-.quiz img{
+.quizz h1{
     width:350px;
     height: 250px;
-    /* tem que ajustar para não ficar esticado, mas não me lembro agora*/
-}
-
-
-/* Para manter a tela 1 durante o começo*/
-.quiz-content{
-    display: none;
-}
-
-.question-title{
-    background-color: #434CA0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom:0px;
+    left: 0px;
+    font-size: 19px;
+    font-weight: 400;
+    text-align: center;
+    align-items: flex-end;
     color: white;
+    padding: 15px;
+    background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(255, 255, 255, 0));
+}
+
+.quizz img{
+    width:350px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+
+/* PARA MANTER A TELA 1 DURANTE O COMEÇO*/
+/*.quizz-content{
+    display: none;
+}*/
+
+.quizz-content{
+    margin-top: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.quizz-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 39px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+.quizz-title img{
+    width: 100%;
+}
+.quizz-title h1{
+    position: absolute;
+}
+
+.question {
+    background-color: #ffffff;
+    width: 60%;
+    display: flex;
+    align-items: space-evenly;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+    flex-flow: row wrap;
+}
+.question img{
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    margin: 0 59px;
+}
+.question-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+    width: 90%;
+    background-color: #434CA0;
+    color: #FFFFFF;
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+h3{
+    padding-left: 59px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+}
+.answer {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .answer-container{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-
-/*Não deu pra colocar o texto do titulo no centro da imagem ainda*/
