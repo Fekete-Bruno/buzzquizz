@@ -217,6 +217,17 @@ h3{
     justify-content: space-between;
 }
 
+.whitening {
+    opacity: 30%;
+}
+
+.wrong-answer{
+    color: rgba(255, 75, 75, 1);
+}
+.correct-answer{
+    color: rgba(0, 156, 34, 1)
+}
+
 /* ESCONDER PÁGINA 2 */
 /*.quizz-content{
     display: none;
