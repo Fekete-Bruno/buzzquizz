@@ -2,14 +2,14 @@
     /*PÁGINA 1*/
     .user-quizz-container{
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         width: 90vw;
         height: 90vw;
         overflow-y: scroll;
         overflow-x: hidden;
     }
     .user-quizz-container :first-child img {
-        margin-top: 410px;
+        margin-top: 0px;
      }
 
     .quizz-container{
