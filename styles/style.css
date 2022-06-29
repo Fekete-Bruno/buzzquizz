@@ -1,1 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* CSS ainda está bem básico */
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #fafafa;
+}
+
+header{
+    background-color: #EC362D;
+    color: white;
+}
+
+/** Tirar comentário para ver a tela 2
+.main-content{
+    display: none;
+}
+**/
+.user-quiz-container{
+    display: flex;
+}
+
+.quiz-container{
+    display: flex;
+}
+
+.quiz{
+    position:relative;
+}
+
+.quiz h1{
+    color: white;
+    position: absolute;
+    bottom:10px;
+    left: 10px;
+}
+
+.quiz img{
+    width:350px;
+    height: 250px;
+    /* tem que ajustar para não ficar esticado, mas não me lembro agora*/
+}
+
+
+/* Para manter a tela 1 durante o começo*/
+.quiz-content{
+    display: none;
+}
+
+.question-title{
+    background-color: #434CA0;
+    color: white;
+}
+
+.answer-container{
+    display: flex;
+}
+
+/*Não deu pra colocar o texto do titulo no centro da imagem ainda*/
