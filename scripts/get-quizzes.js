@@ -1,6 +1,6 @@
 const quizzList = [];
 const userQuizzList = [];
-const userId = 8184; /* Apenas para testar */
+const userId = 8167; /* Apenas para testar */
 
 function getQuizzes() {
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
@@ -44,34 +44,42 @@ function showQuizzes() {
             <div class="user-quizz-container"></div>
             `;
         let userQuizzContainer = document.querySelector('.user-quizz-container');
-        userQuizzList.forEach(quiz => {
+        for (let i = 0; i < userQuizzList.length; i++) {
             userQuizzContainer.innerHTML += 
             `
-            <div class="quizz">
-            <img src="${quiz.image}" alt="">
-            <h1>${quiz.title}</h1>
+            <div class="quizz" onclick="openUserQuiz(${i});">
+            <img src="${userQuizzList[i].image}" alt="">
+            <h1>${userQuizzList[i].title}</h1>
             </div>
-            `
-        });
+            `;
 
+        }
     }
 
-
+    /* Outros Quizzes */
     mainContent.innerHTML += 
         `
         <div class="all-quizzes">TODOS OS QUIZZES</div>
         <div class="quizz-container"></div>
         `;
     let quizzContainer = document.querySelector('.quizz-container');
-    quizzList.forEach(quiz => {
+    for (let i = 0; i < quizzList.length; i++) {
         quizzContainer.innerHTML += 
             `
-            <div class="quizz">
-            <img src="${quiz.image}" alt="">
-            <h1>${quiz.title}</h1>
+            <div class="quizz" onclick="openQuizz(${i});">
+            <img src="${quizzList[i].image}" alt="">
+            <h1>${quizzList[i].title}</h1>
             </div>
             `
-    });
+    }
+};
+
+function openUserQuiz(index){
+    console.log(userQuizzList[index]);
+}
+
+function openQuizz (index){
+    console.log(quizzList[index]);
 }
 
 function errorLog(error) {
