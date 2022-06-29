@@ -47,7 +47,7 @@ function showQuizzes() {
         for (let i = 0; i < userQuizzList.length; i++) {
             userQuizzContainer.innerHTML += 
             `
-            <div class="quizz" onclick="openUserQuiz(${i});">
+            <div class="quizz" onclick="openUserQuizz(${i});">
             <img src="${userQuizzList[i].image}" alt="">
             <h1>${userQuizzList[i].title}</h1>
             </div>
@@ -73,83 +73,6 @@ function showQuizzes() {
             `
     }
 };
-
-function openUserQuiz(index){
-    const quiz = userQuizzList[index];
-    /* inicia a parte de conteudo principal */
-    let content = document.querySelector('.content');
-    content.innerHTML = '<div class="quizz-content"></div>';
-
-    /* colocar quizzes do usuario */
-    let quizzContent = document.querySelector('.quizz-content');
-
-    /* Titulo */
-    quizzContent.innerHTML+=
-        `
-        <div class="quizz-title">
-            <img src="${quiz.image}" alt="">
-            <h1>${quiz.title}</h1>
-        </div>
-        `;
-    let questions = quiz.questions;
-    console.log(questions[0].answers);
-    questions.forEach(question => {
-        question.answers.sort(sorter);
-        quizzContent.innerHTML+=
-        `
-        <div class="question-title">
-                    ${question.title}
-                </div>
-
-                <div class="answer-container">
-                        <div class="answer">
-                            <img src="${question.answers[0].image}" alt="">
-                            <h3>${question.answers[0].text}</h3>
-                        </div>
-
-                        <div class="answer">
-                            <img src="${question.answers[1].image}" alt="">
-                            <h3>${question.answers[1].text}</h3>
-                        </div>
-
-                        <div class="answer">
-                            <img src="${question.answers[2].image}" alt="">
-                            <h3>${question.answers[2].text}</h3>
-                        </div>
-
-                        <div class="answer">
-                            <img src="${question.answers[3].image}" alt="">
-                            <h3>${question.answers[3].text}</h3>
-                        </div>
-                </div>
-        `;
-    });
-}
-
-function openQuizz (index){
-    const quiz = quizzList[index];
-    /* inicia a parte de conteudo principal */
-    let content = document.querySelector('.content');
-    content.innerHTML = '<div class="quizz-content"></div>';
-
-    /* colocar quizzes */
-    let quizzContent = document.querySelector('.quizz-content');
-
-    /* Titulo */
-    quizzContent.innerHTML+=
-        `
-        <div class="quizz-title">
-            <img src="${quiz.image}" alt="">
-            <h1>${quiz.title}</h1>
-        </div>
-        `;
-    console.log(quiz);
-
-}
-
-function sorter() { 
-	return Math.random() - 0.5; 
-}
 
 function errorLog(error) {
     console.log(error.data);
