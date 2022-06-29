@@ -240,3 +240,37 @@ h3{
 /*.quizz-content{
     display: none;
 }*/
+
+/* Página 3*/
+.quizz-create{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.quizz-create h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin:20px;
+}
+
+.quizz-options{
+    margin:10px;
+    padding: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+.quizz-options input{
+    font-size: 19px;
+    width:600px;
+    margin:10px;
+    padding:10px;
+}
+.quizz-create button{
+    font-size: 21px;
+    color: white;
+    background-color: #EC362D;
+    border-radius: 10px;
+    margin:50px;
+    padding: 10px;
+}

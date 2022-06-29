@@ -1,6 +1,6 @@
 const quizzList = [];
 const userQuizzList = [];
-const userId = 8167; /* Apenas para testar */
+const userId = 8168; /* Apenas para testar */
 
 function getQuizzes() {
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
@@ -39,7 +39,7 @@ function showQuizzes() {
         mainContent.innerHTML += 
             `
             <div class="my-quizzes">SEUS QUIZZES
-            <ion-icon name="add-circle"></ion-icon>
+            <ion-icon name="add-circle" onclick="createQuizz()"></ion-icon>
             </div>
             <div class="user-quizz-container"></div>
             `;

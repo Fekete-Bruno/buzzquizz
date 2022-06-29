@@ -75,6 +75,11 @@
         padding: 20px;
     }
 
+
+    .answer img {
+        width: 150px;
+    }
+
     h3{
         font-size: 13px;
     }
