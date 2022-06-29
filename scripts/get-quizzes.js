@@ -75,11 +75,44 @@ function showQuizzes() {
 };
 
 function openUserQuiz(index){
-    console.log(userQuizzList[index]);
+    const quiz = userQuizzList[index];
+    /* inicia a parte de conteudo principal */
+    let content = document.querySelector('.content');
+    content.innerHTML = '<div class="quizz-content"></div>';
+
+    /* colocar quizzes do usuario */
+    let quizzContent = document.querySelector('.quizz-content');
+
+    /* Titulo */
+    quizzContent.innerHTML+=
+        `
+        <div class="quizz-title">
+            <img src="${quiz.image}" alt="">
+            <h1>${quiz.title}</h1>
+        </div>
+        `;
+    console.log(quiz);
 }
 
 function openQuizz (index){
-    console.log(quizzList[index]);
+    const quiz = quizzList[index];
+    /* inicia a parte de conteudo principal */
+    let content = document.querySelector('.content');
+    content.innerHTML = '<div class="quizz-content"></div>';
+
+    /* colocar quizzes */
+    let quizzContent = document.querySelector('.quizz-content');
+
+    /* Titulo */
+    quizzContent.innerHTML+=
+        `
+        <div class="quizz-title">
+            <img src="${quiz.image}" alt="">
+            <h1>${quiz.title}</h1>
+        </div>
+        `;
+    console.log(quiz);
+
 }
 
 function errorLog(error) {
