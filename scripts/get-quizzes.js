@@ -39,7 +39,7 @@ function showQuizzes() {
         mainContent.innerHTML += 
             `
             <div class="my-quizzes">SEUS QUIZZES
-            <ion-icon name="add-circle"></ion-icon>
+            <ion-icon name="add-circle" onclick="createQuizz()"></ion-icon>
             </div>
             <div class="user-quizz-container"></div>
             `;
