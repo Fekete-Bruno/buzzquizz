@@ -61,9 +61,11 @@ header{
 }
 
  /*TIRAR O COMENTÁRIO PARA VER A TELA 2*/
+/*
 .main-content{
     display: none;
-}
+} 
+*/
 
 .user-quizz-container{
     display: flex;
