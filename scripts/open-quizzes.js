@@ -32,40 +32,36 @@ function openUserQuizz(index){
 
                 <div class="answer-container">
                         <div class="answer">
-                            <img src="${question.answers[0].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[0].text}</h3>
+                            <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
                         </div>
 
                         <div class="answer">
-                            <img src="${question.answers[1].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[1].text}</h3>
+                            <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
                         </div>
 
                         <div class="answer">
-                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[2].text}</h3>
+                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
                         </div>
 
                         <div class="answer">
-                            <img src="${question.answers[3].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[3].text}</h3>
+                            <img src="${question.answers[3].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
                         </div>
                 </div>
         `;
 
     });
     /* pega respostas */
-    for (let i = 0; i<=quiz.questions.length-1; i++){
+    for (let i = 0; i<quiz.questions.length; i++){
         answers = quiz.questions[i].answers;
         console.log(answers);
     }
 
-    /*if (answers.isCorrectAnswer) {
-        document.querySelector(".answer").classList.add("correct-answer");
-    } else  {
-        document.querySelector(".answer").classList.add("wrong-answer");
-    }*/
 }
+
 
 function openQuizz (index){
     const quiz = quizzList[index];
@@ -97,23 +93,23 @@ function openQuizz (index){
 
                 <div class="answer-container">
                         <div class="answer">
-                            <img src="${question.answers[0].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[0].text}</h3>
+                            <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
                         </div>
 
                         <div class="answer">
-                            <img src="${question.answers[1].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[1].text}</h3>
+                            <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
                         </div>
 
                         <div class="answer">
-                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[2].text}</h3>
+                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
                         </div>
 
                         <div class="answer">
-                            <img src="${question.answers[3].image}" alt="" onclick="checkAnswer()">
-                            <h3 onclick="checkAnswer()">${question.answers[3].text}</h3>
+                            <img src="${question.answers[3].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
                         </div>
                 </div>
         `;
@@ -126,6 +122,19 @@ function sorter() {
 	return Math.random() - 0.5; 
 }
 
-function checkAnswer() {
-    console.log("teste")
+function checkAnswer(element) {
+    let teste = element.parentNode;
+    console.log(teste);
+
+        if (teste.isCorrectAnswer) {
+            console.log("está certo");
+            teste.classList.add("correct-answer");
+        } else {
+            console.log("está errado");
+            teste.classList.add("wrong-answer");
+        }
+
+    //answers.forEach(answer => {
+
+    //})
 }
