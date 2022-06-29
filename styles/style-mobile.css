@@ -8,21 +8,14 @@
         overflow-y: scroll;
         overflow-x: hidden;
     }
-    .user-quizz-container :first-child img {
-        margin-top: 0px;
-     }
 
     .quizz-container{
         flex-direction: column;
+        justify-content: flex-start;
         width: 90vw;
         height: 90vw;
-        align-items: center;
-        justify-content: center;
         overflow-y: scroll;
         overflow-x: hidden;
-    }
-    .quizz-container :first-child img {
-        margin-top: 410px;
     }
 
     .quizz {

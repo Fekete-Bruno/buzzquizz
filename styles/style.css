@@ -64,8 +64,7 @@ header{
     display: flex;
     width: 75%;
     margin-bottom: 10px;
-    overflow-y: hidden;
-    overflow-x: scroll;
+    flex-wrap: wrap;
 }
 .my-quizzes{
     display: flex;
@@ -94,14 +93,14 @@ header{
 
 .quizz-container{
     display: flex;
+    flex-wrap: wrap;
     width: 75%;
-    overflow-y: hidden;
-    overflow-x: scroll;
 }
 
 .quizz{
     position:relative;
     margin-right: 15px;
+    margin-bottom: 10px;
 }
 
 .quizz h1{
