@@ -3,7 +3,7 @@ let answers = [];
 let levels = [];
 let minValue = [];
 let rightAnswerCount = 0;
-let contador = 0;
+let contador = 2;
 let valueCheck = 0;
 
 function openUserQuizz(index){
@@ -77,10 +77,18 @@ function sorter() {
 }
 
 function checkAnswer(element) {
+    //esta variável pega a div pai do elemento clicado (.answer)
     let divAnswer = element.parentNode;
+
+    //esta variável pega a div pai da .answer (.answer-container) referente à div do elemento clicado
     let divAnswerContainer = divAnswer.parentNode;
+    console.log (divAnswerContainer);
+    //esta variável pega a div pai da .answer-container (.quizz-content) referente à div do elemento clicado
     let divQuizzContent = divAnswerContainer.parentNode;
-    let answersToggle = divAnswerContainer.querySelectorAll(".answer");
+    console.log (divQuizzContent);
+
+    let answersArray = divAnswerContainer.querySelectorAll(".answer");
+
     let lastQuestion = divQuizzContent.querySelector(".answer-container:last-child");
 
         if (divAnswer.classList.contains("true")) {
@@ -89,19 +97,19 @@ function checkAnswer(element) {
             divAnswer.classList.add("selected");
             divAnswer.querySelector("img").removeAttribute("onclick");
             divAnswer.querySelector("h3").removeAttribute("onclick");
-            for (let i = 0; i<answersToggle.length; i++){
+            for (let i = 0; i<answersArray.length; i++){
                 
-                if (answersToggle[i].classList.contains("false")){
-                    answersToggle[i].querySelector("h3").classList.add("wrong-answer");
+                if (answersArray[i].classList.contains("false")){
+                    answersArray[i].querySelector("h3").classList.add("wrong-answer");
                 }
             }
 
-            for (let i = 0; i<answersToggle.length; i++){
-                if (answersToggle[i].classList.contains("selected")){
+            for (let i = 0; i<answersArray.length; i++){
+                if (answersArray[i].classList.contains("selected")){
                 } else {
-                    answersToggle[i].classList.add("whitening");
-                    answersToggle[i].querySelector("img").removeAttribute("onclick");
-                    answersToggle[i].querySelector("h3").removeAttribute("onclick");
+                    answersArray[i].classList.add("whitening");
+                    answersArray[i].querySelector("img").removeAttribute("onclick");
+                    answersArray[i].querySelector("h3").removeAttribute("onclick");
                 }
             }
 
@@ -110,31 +118,35 @@ function checkAnswer(element) {
             divAnswer.classList.add("selected");
             divAnswer.querySelector("img").removeAttribute("onclick");
             divAnswer.querySelector("h3").removeAttribute("onclick");
-            for (let i = 0; i<answersToggle.length; i++){
+            for (let i = 0; i<answersArray.length; i++){
 
-                if (answersToggle[i].classList.contains("false")){
-                    answersToggle[i].querySelector("h3").classList.add("wrong-answer");
+                if (answersArray[i].classList.contains("false")){
+                    answersArray[i].querySelector("h3").classList.add("wrong-answer");
                 } else {
-                    answersToggle[i].querySelector("h3").classList.add("correct-answer");
+                    answersArray[i].querySelector("h3").classList.add("correct-answer");
                 }
             }
-            for (let i = 0; i<answersToggle.length; i++){    
-                if (answersToggle[i].classList.contains("selected")){
+            for (let i = 0; i<answersArray.length; i++){    
+                if (answersArray[i].classList.contains("selected")){
                 } else {
-                    answersToggle[i].classList.add("whitening");
-                    answersToggle[i].querySelector("h3").removeAttribute("onclick");
-                    answersToggle[i].querySelector("img").removeAttribute("onclick");
+                    answersArray[i].classList.add("whitening");
+                    answersArray[i].querySelector("h3").removeAttribute("onclick");
+                    answersArray[i].querySelector("img").removeAttribute("onclick");
                 }
             }
         }
         setTimeout(() => {
-            divAnswerContainer.scrollIntoView(answersToggle[contador+1]);
+            let nextAnswerContainer = divQuizzContent.querySelector(`.answer-container:nth-child(${contador+1})`);
+            console.log(nextAnswerContainer);
             contador++;
+            if (nextAnswerContainer !== null){
+                nextAnswerContainer.scrollIntoView(nextAnswerContainer);
+            }
             addResult(divQuizzContent, lastQuestion, divAnswerContainer);
         }, 2000);    
         
         let rightAnswersPercentage;
-        rightAnswersPercentage =  Math.round((rightAnswerCount*100)/answersToggle.length);       
+        rightAnswersPercentage = Math.round((rightAnswerCount*100)/answersArray.length);       
         
         if (rightAnswersPercentage>minValue[levels.length-1]){
             valueCheck = levels.length-1;
@@ -165,11 +177,13 @@ function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
 
 function showResult(divQuizzContent){
     let lastChild = divQuizzContent.querySelector(".result");
-    let resultH2 = lastChild.querySelector("h2");
 
     setTimeout(() => {
-        lastChild.scrollIntoView(resultH2);
+        lastChild.scrollIntoView(lastChild);
     }, 500); 
+
+    rightAnswerCount = 0;
+    valueCheck = 0;
 }
 
 function checkLength(length,question){
