@@ -1,9 +1,10 @@
 let questions = [];
 let answers = [];
 let levels = [];
-let getResult;
+let minValue = [];
 let rightAnswerCount = 0;
 let contador = 0;
+let valueCheck = 0;
 
 function openUserQuizz(index){
     const quiz = userQuizzList[index];
@@ -45,6 +46,12 @@ function openQuizz (index){
 
     /* ativar levels */
     levels = quiz.levels;
+
+    /*ativar minValue*/
+    for(let i = 0; i<levels.length; i++){
+        minValue[i] = levels[i].minValue;
+        console.log(minValue[i]);
+    }
 
     /* Titulo */
     quizzContent.innerHTML+=
@@ -127,8 +134,18 @@ function checkAnswer(element) {
         }, 2000);    
         
         let rightAnswersPercentage;
-        rightAnswersPercentage =  (rightAnswerCount*100)/answersToggle.length;
-        console.log (Math.round(rightAnswersPercentage));
+        rightAnswersPercentage =  Math.round((rightAnswerCount*100)/answersToggle.length);       
+        
+        if (rightAnswersPercentage>minValue[levels.length-1]){
+            valueCheck = levels.length-1;
+        } else if (rightAnswersPercentage>minValue[levels.length-2]){
+            valueCheck = levels.length-2;
+        } else if (rightAnswersPercentage>minValue[levels.length-3]){
+            valueCheck = levels.length-3;
+        } else if (rightAnswersPercentage>minValue[levels.length-4]){
+            valueCheck = levels.length-4;
+        }
+        
 }
 
 function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
@@ -137,9 +154,9 @@ function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
         divQuizzContent.innerHTML+= 
         `
         <div class="result">
-            <h1>${levels[0].title}</h1>
-            <img src="${levels[0].image}" alt="">
-            <h2>${levels[0].text}</h2>
+            <h1>${levels[valueCheck].title}</h1>
+            <img src="${levels[valueCheck].image}" alt="">
+            <h2>${levels[valueCheck].text}</h2>
         </div>
         `;
         showResult(divQuizzContent);
