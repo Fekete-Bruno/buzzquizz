@@ -124,7 +124,11 @@ function checkAnswer(element) {
             divAnswerContainer.scrollIntoView(answersToggle[contador+1]);
             contador++;
             addResult(divQuizzContent, lastQuestion, divAnswerContainer);
-        }, 2000);        
+        }, 2000);    
+        
+        let rightAnswersPercentage;
+        rightAnswersPercentage =  (rightAnswerCount*100)/answersToggle.length;
+        console.log (Math.round(rightAnswersPercentage));
 }
 
 function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
