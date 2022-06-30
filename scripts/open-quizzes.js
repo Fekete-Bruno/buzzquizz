@@ -1,6 +1,7 @@
 let questions = [];
 let answers = [];
 let nextQuestion;
+let contador = 1;
 
 function openUserQuizz(index){
     const quiz = userQuizzList[index];
