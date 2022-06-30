@@ -274,3 +274,7 @@ h3{
     margin:50px;
     padding: 10px;
 }
+
+.hidden{
+    display:none;
+}

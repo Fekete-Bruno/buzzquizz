@@ -1,6 +1,8 @@
 let questions = [];
 let answers = [];
-let nextQuestion;
+let levels = [];
+let getResult;
+let rightAnswerCount = 0;
 let contador = 0;
 
 function openUserQuizz(index){
@@ -41,6 +43,10 @@ function openQuizz (index){
     /* colocar quizzes */
     let quizzContent = document.querySelector('.quizz-content');
 
+    /* ativar levels */
+    levels = quiz.levels;
+    console.log(levels);
+
     /* Titulo */
     quizzContent.innerHTML+=
         `
@@ -66,9 +72,13 @@ function sorter() {
 function checkAnswer(element) {
     let divAnswer = element.parentNode;
     let divAnswerContainer = divAnswer.parentNode;
+    let divQuizzContent = divAnswerContainer.parentNode;
     let answersToggle = divAnswerContainer.querySelectorAll(".answer");
+    let lastChild = divAnswerContainer.querySelector(".answer:last-child")
+    console.log(lastChild);
 
         if (divAnswer.classList.contains("true")) {
+            rightAnswerCount++;
             divAnswer.querySelector("h3").classList.add("correct-answer");
             divAnswer.classList.add("selected");
             divAnswer.querySelector("img").removeAttribute("onclick");
@@ -115,7 +125,7 @@ function checkAnswer(element) {
             divAnswerContainer.scrollIntoView(answersToggle[contador+1]);
             contador++;
         }, 2000);
-
+        
 }
 
 function checkLength(length,question){
@@ -128,25 +138,31 @@ function checkLength(length,question){
                 </div>
 
                 <div class="answer-container">
-                <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
-                    <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
-                    <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
-                </div>
+                    <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                    </div>
 
-                <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
-                    <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
-                    <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
-                </div>
+                    <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
+                    </div>
 
-                <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
-                    <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
-                    <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
-                </div>
+                    <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
+                    </div>
 
-                <div class="answer ${question.answers[3].isCorrectAnswer.toString()}">
-                    <img src="${question.answers[3].image}" alt="" onclick="checkAnswer(this)">
-                    <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
+                    <div class="answer ${question.answers[3].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[3].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
+                    </div>
                 </div>
+                
+                <div class="result hidden">
+                    <h1>${levels[0].title}</h1>
+                    <img src="${levels[0].image}" alt="">
+                    <h2>${levels[0].text}</h2>
                 </div>
                 `
             );
@@ -160,21 +176,26 @@ function checkLength(length,question){
                 </div>
 
                 <div class="answer-container">
-                <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
-                    <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
-                    <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                    <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                    </div>
+
+                    <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
+                    </div>
+
+                    <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
+                    </div>
                 </div>
 
-                <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
-                    <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
-                    <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
-                </div>
-
-                <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
-                    <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
-                    <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
-                </div>
-
+                <div class="result hidden">
+                    <h1>${levels[0].title}</h1>
+                    <img src="${levels[0].image}" alt="">
+                    <h2>${levels[0].text}</h2>
                 </div>
                 `
             );
@@ -187,15 +208,21 @@ function checkLength(length,question){
                     </div>
 
                     <div class="answer-container">
-                    <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
-                        <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
-                        <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                        <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
+                            <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                        </div>
+
+                        <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
+                            <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                            <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
+                        </div>
                     </div>
 
-                    <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
-                        <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
-                        <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
-                    </div>
+                    <div class="result hidden">
+                        <h1>${levels[0].title}</h1>
+                        <img src="${levels[0].image}" alt="">
+                        <h2>${levels[0].text}</h2>
                     </div>
                     `
                 );

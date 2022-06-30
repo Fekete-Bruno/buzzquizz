@@ -3,7 +3,7 @@ const userQuizzList = [];
 const userId = 8220; /* Apenas para testar */
 
 function getQuizzes() {
-    const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
+    const promise = axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes');
     promise.catch(errorLog);
     promise.then(listQuizzes);
 }
