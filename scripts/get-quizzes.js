@@ -1,6 +1,6 @@
 const quizzList = [];
 const userQuizzList = [];
-const userId = 8175; /* Apenas para testar */
+const userId = 8220; /* Apenas para testar */
 
 function getQuizzes() {
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');

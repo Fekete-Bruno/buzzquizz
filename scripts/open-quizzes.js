@@ -1,7 +1,7 @@
 let questions = [];
 let answers = [];
 let nextQuestion;
-let contador = 1;
+let contador = 0;
 
 function openUserQuizz(index){
     const quiz = userQuizzList[index];
@@ -67,7 +67,6 @@ function checkAnswer(element) {
     let divAnswer = element.parentNode;
     let divAnswerContainer = divAnswer.parentNode;
     let answersToggle = divAnswerContainer.querySelectorAll(".answer");
-    console.log ("clicou");
 
         if (divAnswer.classList.contains("true")) {
             divAnswer.querySelector("h3").classList.add("correct-answer");
@@ -113,7 +112,8 @@ function checkAnswer(element) {
             }
         }
         setTimeout(() => {
-            divAnswerContainer.scrollIntoView();
+            divAnswerContainer.scrollIntoView(answersToggle[contador+1]);
+            contador++;
         }, 2000);
 
 }
