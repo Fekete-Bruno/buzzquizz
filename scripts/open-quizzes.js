@@ -25,34 +25,8 @@ function openUserQuizz(index){
     questions = quiz.questions;
     questions.forEach(question => {
         question.answers.sort(sorter);
-        quizzContent.innerHTML+=
-        `
-        <div class="question-title">
-                    ${question.title}
-                </div>
-
-                <div class="answer-container">
-                        <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
-                            <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
-                        </div>
-
-                        <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
-                            <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
-                        </div>
-
-                        <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
-                            <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
-                        </div>
-
-                        <div class="answer ${question.answers[3].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[3].image}" alt="" onclick="checkAnswer(this)">
-                            <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
-                        </div>
-                </div>
-        `;
+        let ans = checkLength(question.answers.length,question);
+        quizzContent.innerHTML += ans; 
     });
 
 }
@@ -80,34 +54,8 @@ function openQuizz (index){
     questions = quiz.questions;
     questions.forEach(question => {
         question.answers.sort(sorter);
-        quizzContent.innerHTML+=
-        `
-        <div class="question-title">
-                    ${question.title}
-                </div>
-
-                <div class="answer-container">
-                        <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
-                            <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
-                        </div>
-
-                        <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
-                            <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
-                        </div>
-
-                        <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)>
-                            <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
-                        </div>
-
-                        <div class="answer ${question.answers[3].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[3].image}" alt="" onclick="checkAnswer(this)">
-                            <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
-                        </div>
-                </div>
-        `;
+        let ans = checkLength(question.answers.length,question);
+        quizzContent.innerHTML += ans; 
     });    
 }
 
@@ -168,4 +116,89 @@ function checkAnswer(element) {
             divAnswerContainer.scrollIntoView();
         }, 2000);
 
+}
+
+function checkLength(length,question){
+    switch (length) {
+        case 4:
+            return(
+                `
+                <div class="question-title">
+                ${question.title}
+                </div>
+
+                <div class="answer-container">
+                <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
+                    <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                    <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                </div>
+
+                <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
+                    <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                    <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
+                </div>
+
+                <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
+                    <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
+                    <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
+                </div>
+
+                <div class="answer ${question.answers[3].isCorrectAnswer.toString()}">
+                    <img src="${question.answers[3].image}" alt="" onclick="checkAnswer(this)">
+                    <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
+                </div>
+                </div>
+                `
+            );
+            break;
+    
+        case 3:
+            return(
+                `
+                <div class="question-title">
+                ${question.title}
+                </div>
+
+                <div class="answer-container">
+                <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
+                    <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                    <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                </div>
+
+                <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
+                    <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                    <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
+                </div>
+
+                <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
+                    <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
+                    <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
+                </div>
+
+                </div>
+                `
+            );
+            break;
+            case 2:
+                return(
+                    `
+                    <div class="question-title">
+                    ${question.title}
+                    </div>
+
+                    <div class="answer-container">
+                    <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
+                    </div>
+
+                    <div class="answer ${question.answers[1].isCorrectAnswer.toString()}">
+                        <img src="${question.answers[1].image}" alt="" onclick="checkAnswer(this)">
+                        <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
+                    </div>
+                    </div>
+                    `
+                );
+                break;
+    }
 }
