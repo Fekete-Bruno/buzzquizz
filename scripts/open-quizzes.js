@@ -45,7 +45,6 @@ function openQuizz (index){
 
     /* ativar levels */
     levels = quiz.levels;
-    console.log(levels);
 
     /* Titulo */
     quizzContent.innerHTML+=
@@ -54,7 +53,8 @@ function openQuizz (index){
             <img src="${quiz.image}" alt="">
             <h1>${quiz.title}</h1>
         </div>
-        `;
+        `
+        ;
 
     /* ativar perguntas */
     questions = quiz.questions;
@@ -74,8 +74,7 @@ function checkAnswer(element) {
     let divAnswerContainer = divAnswer.parentNode;
     let divQuizzContent = divAnswerContainer.parentNode;
     let answersToggle = divAnswerContainer.querySelectorAll(".answer");
-    let lastChild = divAnswerContainer.querySelector(".answer:last-child")
-    console.log(lastChild);
+    let lastQuestion = divQuizzContent.querySelector(".answer-container:last-child");
 
         if (divAnswer.classList.contains("true")) {
             rightAnswerCount++;
@@ -124,8 +123,34 @@ function checkAnswer(element) {
         setTimeout(() => {
             divAnswerContainer.scrollIntoView(answersToggle[contador+1]);
             contador++;
-        }, 2000);
-        
+            addResult(divQuizzContent, lastQuestion, divAnswerContainer);
+        }, 2000);        
+}
+
+function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
+
+    if (lastQuestion === divAnswerContainer){
+        divQuizzContent.innerHTML+= 
+        `
+        <div class="result">
+            <h1>${levels[0].title}</h1>
+            <img src="${levels[0].image}" alt="">
+            <h2>${levels[0].text}</h2>
+        </div>
+        `;
+        }
+    showResult(divQuizzContent);
+}
+
+function showResult(divQuizzContent){
+    let lastChild = divQuizzContent.querySelector(".result");
+    let resultH2 = lastChild.querySelector("h2");
+
+    setTimeout(() => {
+        lastChild.scrollIntoView(resultH2);
+    }, 500); 
+   
+
 }
 
 function checkLength(length,question){
@@ -133,11 +158,11 @@ function checkLength(length,question){
         case 4:
             return(
                 `
-                <div class="question-title">
-                ${question.title}
-                </div>
-
                 <div class="answer-container">
+                    <div class="question-title">
+                        ${question.title}
+                    </div>
+
                     <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
                         <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
                         <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
@@ -158,24 +183,17 @@ function checkLength(length,question){
                         <h3 onclick="checkAnswer(this)">${question.answers[3].text}</h3>
                     </div>
                 </div>
-                
-                <div class="result hidden">
-                    <h1>${levels[0].title}</h1>
-                    <img src="${levels[0].image}" alt="">
-                    <h2>${levels[0].text}</h2>
-                </div>
                 `
             );
-            break;
     
         case 3:
             return(
                 `
-                <div class="question-title">
-                ${question.title}
-                </div>
-
                 <div class="answer-container">
+                    <div class="question-title">
+                        ${question.title}
+                    </div>
+
                     <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
                         <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
                         <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
@@ -191,23 +209,17 @@ function checkLength(length,question){
                         <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
                     </div>
                 </div>
-
-                <div class="result hidden">
-                    <h1>${levels[0].title}</h1>
-                    <img src="${levels[0].image}" alt="">
-                    <h2>${levels[0].text}</h2>
-                </div>
                 `
             );
-            break;
+
             case 2:
                 return(
                     `
-                    <div class="question-title">
-                    ${question.title}
-                    </div>
-
                     <div class="answer-container">
+                        <div class="question-title">
+                            ${question.title}
+                        </div>
+
                         <div class="answer ${question.answers[0].isCorrectAnswer.toString()}">
                             <img src="${question.answers[0].image}" alt="" onclick="checkAnswer(this)">
                             <h3 onclick="checkAnswer(this)">${question.answers[0].text}</h3>
@@ -218,14 +230,7 @@ function checkLength(length,question){
                             <h3 onclick="checkAnswer(this)">${question.answers[1].text}</h3>
                         </div>
                     </div>
-
-                    <div class="result hidden">
-                        <h1>${levels[0].title}</h1>
-                        <img src="${levels[0].image}" alt="">
-                        <h2>${levels[0].text}</h2>
-                    </div>
                     `
                 );
-                break;
     }
 }

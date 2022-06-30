@@ -191,12 +191,12 @@ header{
     justify-content: center;
     text-align: center;
     height: 130px;
-    width: 90%;
+    width: 100%;
     background-color: #434CA0;
     color: #FFFFFF;
     font-size: 23px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin: 20px 30px;
 }
 
 h3{
@@ -207,22 +207,26 @@ h3{
     font-weight: 700;
 }
 .answer {
+    margin: 30px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 50%;
+    width: 40%;
 }
 
 .answer img{
-    width:320px;
+    width:100%;
 }
 
 .answer-container{
+    background-color: #ffffff;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 60%;
+    margin-bottom: 40px;
 }
 
 .whitening {
@@ -273,6 +277,48 @@ h3{
     border-radius: 10px;
     margin:50px;
     padding: 10px;
+}
+
+/* RESULTADO PÁGINA 2 */
+
+.result {
+    background-color: #ffffff;
+    width: 60%;
+    display: flex;
+    align-items: space-around;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    flex-flow: row wrap;
+}
+.result img{
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    width: 40%;
+}
+.result h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 130px;
+    width: 100%;
+    background-color: rgba(236, 54, 45, 1);
+    color: #FFFFFF;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 20px 30px;
+}
+
+.result h2{
+    width: 40%;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    color: #000000;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 30px;
+    text-align: center;
 }
 
 .hidden{
