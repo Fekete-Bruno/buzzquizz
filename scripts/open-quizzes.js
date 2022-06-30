@@ -138,8 +138,8 @@ function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
             <h2>${levels[0].text}</h2>
         </div>
         `;
+        showResult(divQuizzContent);
         }
-    showResult(divQuizzContent);
 }
 
 function showResult(divQuizzContent){
@@ -149,8 +149,6 @@ function showResult(divQuizzContent){
     setTimeout(() => {
         lastChild.scrollIntoView(resultH2);
     }, 500); 
-   
-
 }
 
 function checkLength(length,question){
