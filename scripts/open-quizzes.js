@@ -1,5 +1,6 @@
 let questions = [];
 let answers = [];
+let nextQuestion;
 
 function openUserQuizz(index){
     const quiz = userQuizzList[index];
@@ -51,9 +52,7 @@ function openUserQuizz(index){
                         </div>
                 </div>
         `;
-        console.log(question.answers);
     });
-    /* pega respostas */
 
 }
 
@@ -98,7 +97,7 @@ function openQuizz (index){
                         </div>
 
                         <div class="answer ${question.answers[2].isCorrectAnswer.toString()}">
-                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)">
+                            <img src="${question.answers[2].image}" alt="" onclick="checkAnswer(this)>
                             <h3 onclick="checkAnswer(this)">${question.answers[2].text}</h3>
                         </div>
 
@@ -108,12 +107,7 @@ function openQuizz (index){
                         </div>
                 </div>
         `;
-    });
-    for (let i = 0; i<questions.length; i++){
-        answers = questions[i];
-        console.log (answers);
-    }
-    
+    });    
 }
 
 function sorter() { 
@@ -122,19 +116,55 @@ function sorter() {
 
 function checkAnswer(element) {
     let divAnswer = element.parentNode;
-    console.log(divAnswer);
+    let divAnswerContainer = divAnswer.parentNode;
+    let answersToggle = divAnswerContainer.querySelectorAll(".answer");
+    console.log ("clicou");
+
         if (divAnswer.classList.contains("true")) {
             divAnswer.querySelector("h3").classList.add("correct-answer");
+            divAnswer.classList.add("selected");
+            divAnswer.querySelector("img").removeAttribute("onclick");
+            divAnswer.querySelector("h3").removeAttribute("onclick");
+            for (let i = 0; i<answersToggle.length; i++){
+                
+                if (answersToggle[i].classList.contains("false")){
+                    answersToggle[i].querySelector("h3").classList.add("wrong-answer");
+                }
+            }
+
+            for (let i = 0; i<answersToggle.length; i++){
+                if (answersToggle[i].classList.contains("selected")){
+                } else {
+                    answersToggle[i].classList.add("whitening");
+                    answersToggle[i].querySelector("img").removeAttribute("onclick");
+                    answersToggle[i].querySelector("h3").removeAttribute("onclick");
+                }
+            }
+
         } else {
             divAnswer.querySelector("h3").classList.add("wrong-answer");
+            divAnswer.classList.add("selected");
+            divAnswer.querySelector("img").removeAttribute("onclick");
+            divAnswer.querySelector("h3").removeAttribute("onclick");
+            for (let i = 0; i<answersToggle.length; i++){
+
+                if (answersToggle[i].classList.contains("false")){
+                    answersToggle[i].querySelector("h3").classList.add("wrong-answer");
+                } else {
+                    answersToggle[i].querySelector("h3").classList.add("correct-answer");
+                }
+            }
+            for (let i = 0; i<answersToggle.length; i++){    
+                if (answersToggle[i].classList.contains("selected")){
+                } else {
+                    answersToggle[i].classList.add("whitening");
+                    answersToggle[i].querySelector("h3").removeAttribute("onclick");
+                    answersToggle[i].querySelector("img").removeAttribute("onclick");
+                }
+            }
         }
-        toggleAnswers(divAnswer);
-}
+        setTimeout(() => {
+            divAnswerContainer.scrollIntoView();
+        }, 2000);
 
-function toggleAnswers(divAnswer){
-    let answer = document.queryselectorAll("h3");
-
-    if (answer.classList.contains("correct-answer")){
-
-    }
 }
