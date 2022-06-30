@@ -50,7 +50,6 @@ function openQuizz (index){
     /*ativar minValue*/
     for(let i = 0; i<levels.length; i++){
         minValue[i] = levels[i].minValue;
-        console.log(minValue[i]);
     }
 
     /* Titulo */
@@ -82,13 +81,11 @@ function checkAnswer(element) {
 
     //esta variável pega a div pai da .answer (.answer-container) referente à div do elemento clicado
     let divAnswerContainer = divAnswer.parentNode;
-    console.log (divAnswerContainer);
+
     //esta variável pega a div pai da .answer-container (.quizz-content) referente à div do elemento clicado
     let divQuizzContent = divAnswerContainer.parentNode;
-    console.log (divQuizzContent);
 
     let answersArray = divAnswerContainer.querySelectorAll(".answer");
-
     let lastQuestion = divQuizzContent.querySelector(".answer-container:last-child");
 
         if (divAnswer.classList.contains("true")) {
@@ -137,7 +134,6 @@ function checkAnswer(element) {
         }
         setTimeout(() => {
             let nextAnswerContainer = divQuizzContent.querySelector(`.answer-container:nth-child(${contador+1})`);
-            console.log(nextAnswerContainer);
             contador++;
             if (nextAnswerContainer !== null){
                 nextAnswerContainer.scrollIntoView(nextAnswerContainer);
