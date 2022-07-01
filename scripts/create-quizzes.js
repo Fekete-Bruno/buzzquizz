@@ -30,8 +30,8 @@
             questionAmount: Number(inputs[2].value),
             levelsAmount: Number(inputs[3].value)
         }
-
-        if(obj.title.length<20 || obj.title.length>65 || !isUrlValid(obj.URL) || obj.questionAmount<3 || obj.levelsAmount<2){
+        
+        if(quizzInfo.title.length<20 || quizzInfo.title.length>65 || !isUrlValid(quizzInfo.URL) || quizzInfo.questionAmount<3 || quizzInfo.levelsAmount<2){
             alert('Verifique as suas configurações de quiz novamente...');
         } else {
             loadquestionLevels();
@@ -46,23 +46,30 @@
     
 
     function loadquestionLevels(){
-        document.querySelector('.content').innerHTML =
-            `
-            <div class="quizz-levels">
-                <h2>Agora, decida os níveis!</h2>
+        document.querySelector('.content').innerHTML = 
+        `
+        <div class="quizz-levels"> 
+            <h2>Agora, decida os níveis!</h2>
+        </div>
+        `;
 
+        for (let i = 1; i<=quizzInfo.levelsAmount; i++){
+            document.querySelector('.quizz-levels').innerHTML +=
+            `
                 <div class="level-options">
-                    <div class="level1"> Nível 1
+                    <div class="level${i}"> Nível ${i}
                         <div><input type="text" placeholder="Título do nível" ></div>
                         <div><input type="text" placeholder="% de acerto mínima" ></div>
                         <div><input type="text" placeholder="URL da imagem do nível" ></div>
                         <div><textarea rows="5" placeholder="Descrição do nível"></textarea></div>
                     </div>    
                 </div>
-
-                <button onclick="">FinalizarQuizz</button>
-            </div>
             `; 
+        }
+        document.querySelector('.quizz-levels').innerHTML += 
+        `
+            <button onclick="">FinalizarQuizz</button>
+        `
     }
 
    
