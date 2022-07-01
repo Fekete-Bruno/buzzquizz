@@ -65,6 +65,10 @@ header{
     border-radius: 40px;
 }
 
+.create-quizz div:hover{
+    cursor: pointer;
+}
+
 .user-quizz-container{
     display: flex;
     width: 75%;
@@ -106,6 +110,10 @@ header{
     position:relative;
     margin-right: 15px;
     margin-bottom: 10px;
+}
+
+.quizz:hover{
+    cursor: pointer;
 }
 
 .quizz h1{
@@ -220,7 +228,10 @@ h3{
     align-items: center;
     justify-content: space-around;
     width: 40%;
+}
 
+.answer:hover{
+    cursor:pointer;
 }
 
 .answer img{
