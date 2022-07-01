@@ -4,7 +4,6 @@ let levels = [];
 let minValue = [];
 let rightAnswerCount = 0;
 let answersCount = 0;
-let checkAnswersLength = 0;
 let contador = 2;
 let valueCheck = 0;
 
@@ -202,7 +201,9 @@ function showResult(divQuizzContent){
         lastElement.scrollIntoView(lastElement);
     }, 500); 
     rightAnswerCount = 0;
+    answersCount = 0;
     valueCheck = 0;
+    contador = 2;
 }
 
 function checkLength(length,question){
