@@ -1,5 +1,5 @@
     let inputs;
-    let obj;
+    let quizzInfo;
     function createQuizz(){
         console.log('Criando Quiz...');
         loadQuizzCreation();
@@ -24,7 +24,7 @@
 
     function checkStart(){
         inputs = document.querySelectorAll('input');
-        obj = {
+        quizzInfo = {
             title: inputs[0].value,
             URL : inputs[1].value,
             questionAmount: Number(inputs[2].value),
@@ -39,11 +39,11 @@
 
     }
 
-    /*
-    function loadQuestions(){
+    
+    /*function loadQuestions(){
 
-    }
-    */
+    }*/
+    
 
     function loadquestionLevels(){
         document.querySelector('.content').innerHTML=
