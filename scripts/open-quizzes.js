@@ -187,7 +187,7 @@ function addResult(divQuizzContent, answerContainerArray){
         </div>
 
         <div>
-            <button class="restart-quizz">Reiniciar Quizz</button>
+            <button class="restart-quizz">Reiniciar Quizz</button> 
             <button class="home">Voltar para home</button>
         </div>
         `;
