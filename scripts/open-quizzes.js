@@ -6,8 +6,10 @@ let rightAnswerCount = 0;
 let answersCount = 0;
 let contador = 2;
 let valueCheck = 0;
+let restartIndex;
 
 function openUserQuizz(index){
+    restartIndex = index;
     const quiz = userQuizzList[index];
     /* inicia a parte de conteudo principal */
     let content = document.querySelector('.content');
@@ -37,6 +39,7 @@ function openUserQuizz(index){
 
 
 function openQuizz (index){
+    restartIndex = index;
     const quiz = quizzList[index];
     /* inicia a parte de conteudo principal */
     let content = document.querySelector('.content');
@@ -187,8 +190,8 @@ function addResult(divQuizzContent, answerContainerArray){
         </div>
 
         <div>
-            <button class="restart-quizz">Reiniciar Quizz</button> 
-            <button class="home">Voltar para home</button>
+            <button class="restart-quizz" onclick="restartQuizz()">Reiniciar Quizz</button>
+            <button class="home" onclick="returnHome()">Voltar para home</button>
         </div>
         `;
         showResult(divQuizzContent);
@@ -204,6 +207,14 @@ function showResult(divQuizzContent){
     answersCount = 0;
     valueCheck = 0;
     contador = 2;
+}
+
+function restartQuizz(){
+    openQuizz(restartIndex);
+}
+
+function returnHome() {
+    getQuizzes();
 }
 
 function checkLength(length,question){
