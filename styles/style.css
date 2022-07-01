@@ -240,45 +240,6 @@ h3{
     color: rgba(0, 156, 34, 1)
 }
 
-/* ESCONDER PÁGINA 2 */
-/*.quizz-content{
-    display: none;
-}*/
-
-/* Página 3*/
-.quizz-create{
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.quizz-create h2{
-    font-size: 24px;
-    font-weight: bold;
-    margin:20px;
-}
-
-.quizz-options{
-    margin:10px;
-    padding: 10px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-}
-.quizz-options input{
-    font-size: 19px;
-    width:600px;
-    margin:10px;
-    padding:10px;
-}
-.quizz-create button{
-    font-size: 21px;
-    color: white;
-    background-color: #EC362D;
-    border-radius: 10px;
-    margin:50px;
-    padding: 10px;
-}
-
 /* RESULTADO PÁGINA 2 */
 
 .result {
@@ -322,6 +283,78 @@ h3{
     text-align: center;
 }
 
+/* BOTÕES PÁGINA 2 */
+.restart-quizz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(236, 54, 45, 1);
+    border-radius: 15px;
+    border: none;
+    height: 52px;
+    width: 260px;
+    font-size: 21px;
+    font-weight: 400;
+    color: rgba(255, 245, 244, 1);
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 56px;
+    border: none;
+    color: rgba(129, 129, 129, 1);
+    font-size: 21px;
+    font-weight: 400;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 20px;
+}
+
+/* ESCONDER PÁGINA 2 */
+/*.quizz-content{
+    display: none;
+}*/
+
+/* PÁGINA 3*/
+.quizz-create{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.quizz-create h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin:20px;
+}
+
+.quizz-options{
+    margin:10px;
+    padding: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+.quizz-options input{
+    font-size: 19px;
+    width:600px;
+    margin:10px;
+    padding:10px;
+}
+.quizz-create button{
+    font-size: 21px;
+    color: white;
+    background-color: #EC362D;
+    border-radius: 10px;
+    margin:50px;
+    padding: 10px;
+}
+
+/* CLASSE GLOBAL PARA ESCONDER ELEMENTOS */
 .hidden{
     display:none;
 }

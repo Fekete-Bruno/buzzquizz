@@ -166,17 +166,21 @@ function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
             <img src="${levels[valueCheck].image}" alt="">
             <h2>${levels[valueCheck].text}</h2>
         </div>
+
+        <div>
+            <button class="restart-quizz">Reiniciar Quizz</button>
+            <button class="home">Voltar para home</button>
+        </div>
         `;
         showResult(divQuizzContent);
         }
 }
 
 function showResult(divQuizzContent){
-    let lastChild = divQuizzContent.querySelector(".result");
-
+    let lastElement = divQuizzContent.querySelector(".home")
     setTimeout(() => {
-        lastChild.scrollIntoView(lastChild);
-    }, 500); 
+        lastElement.scrollIntoView(lastElement);
+    }, 100); 
 
     rightAnswerCount = 0;
     valueCheck = 0;
