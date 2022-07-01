@@ -7,9 +7,11 @@ let answersCount = 0;
 let contador = 2;
 let valueCheck = 0;
 let restartIndex;
+let restartUserIndex;
 
 function openUserQuizz(index){
-    restartIndex = index;
+    restartUserIndex = index;
+    restartIndex = -1;
     const quiz = userQuizzList[index];
     /* inicia a parte de conteudo principal */
     let content = document.querySelector('.content');
@@ -17,6 +19,8 @@ function openUserQuizz(index){
 
     /* colocar quizzes do usuario */
     let quizzContent = document.querySelector('.quizz-content');
+
+    activateLevels(quiz);
 
     /* Titulo */
     quizzContent.innerHTML+=
@@ -35,11 +39,16 @@ function openUserQuizz(index){
         quizzContent.innerHTML += ans; 
     });
 
+
+    let scrollTop = document.querySelector(".quizz-title");
+    scrollTop.scrollIntoView(scrollTop);
+
 }
 
 
 function openQuizz (index){
     restartIndex = index;
+    restartUserIndex = -1;
     const quiz = quizzList[index];
     /* inicia a parte de conteudo principal */
     let content = document.querySelector('.content');
@@ -48,13 +57,7 @@ function openQuizz (index){
     /* colocar quizzes */
     let quizzContent = document.querySelector('.quizz-content');
 
-    /* ativar levels */
-    levels = quiz.levels;
-
-    /*ativar minValue*/
-    for(let i = 0; i<levels.length; i++){
-        minValue[i] = levels[i].minValue;
-    }
+    activateLevels(quiz);
 
     /* Titulo */
     quizzContent.innerHTML+=
@@ -80,6 +83,16 @@ function openQuizz (index){
 
 function sorter() { 
 	return Math.random() - 0.5; 
+}
+
+function activateLevels(quiz){
+    /* ativar levels */
+    levels = quiz.levels;
+
+    /*ativar minValue*/
+    for(let i = 0; i<levels.length; i++){
+        minValue[i] = levels[i].minValue;
+    }
 }
 
 function checkAnswer(element) {
@@ -210,7 +223,11 @@ function showResult(divQuizzContent){
 }
 
 function restartQuizz(){
-    openQuizz(restartIndex);
+    if (restartIndex >= 0){
+        openQuizz(restartIndex);
+    } else {
+        openUserQuizz(restartUserIndex)
+    }
 }
 
 function returnHome() {
