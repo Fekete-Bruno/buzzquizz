@@ -11,7 +11,6 @@ let restartIndex;
 function openUserQuizz(index){
     restartIndex = index;
     const quiz = userQuizzList[index];
-    
     /* inicia a parte de conteudo principal */
     let content = document.querySelector('.content');
     content.innerHTML = '<div class="quizz-content"></div>';

@@ -205,6 +205,8 @@ h3{
     color: #000000;
     font-size: 20px;
     font-weight: 700;
+    width: 100%;
+    word-wrap: break-word;
 }
 .answer {
     margin: 30px;
@@ -214,6 +216,7 @@ h3{
     align-items: center;
     justify-content: space-around;
     width: 40%;
+
 }
 
 .answer img{
@@ -281,6 +284,7 @@ h3{
     font-weight: 700;
     margin: 0 30px;
     text-align: center;
+    word-wrap: break-word;
 }
 
 /* BOTÕES PÁGINA 2 */
