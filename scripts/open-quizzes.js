@@ -152,6 +152,8 @@ function checkAnswer(element) {
             valueCheck = levels.length-3;
         } else if (rightAnswersPercentage>minValue[levels.length-4]){
             valueCheck = levels.length-4;
+        } else if (rightAnswersPercentage>minValue[levels.length-5]){
+            valueCheck = levels.length-5;
         }
         
 }
@@ -180,7 +182,7 @@ function showResult(divQuizzContent){
     let lastElement = divQuizzContent.querySelector(".home")
     setTimeout(() => {
         lastElement.scrollIntoView(lastElement);
-    }, 100); 
+    }, 500); 
 
     rightAnswerCount = 0;
     valueCheck = 0;
