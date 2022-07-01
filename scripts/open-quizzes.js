@@ -71,6 +71,9 @@ function openQuizz (index){
         let ans = checkLength(question.answers.length,question);
         quizzContent.innerHTML += ans; 
     });    
+
+    let scrollTop = document.querySelector(".quizz-title");
+    scrollTop.scrollIntoView(scrollTop);
 }
 
 function sorter() { 
@@ -198,7 +201,6 @@ function showResult(divQuizzContent){
     setTimeout(() => {
         lastElement.scrollIntoView(lastElement);
     }, 500); 
-
     rightAnswerCount = 0;
     valueCheck = 0;
 }
