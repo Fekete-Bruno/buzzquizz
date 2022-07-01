@@ -27,8 +27,8 @@
         obj = {
             title: inputs[0].value,
             URL : inputs[1].value,
-            questionAmount: inputs[2].value,
-            levelsAmount: inputs[3].value
+            questionAmount: Number(inputs[2].value),
+            levelsAmount: Number(inputs[3].value)
         }
 
         if(obj.title.length<20 || obj.title.length>65 || !isUrlValid(obj.URL) || obj.questionAmount<3 || obj.levelsAmount<2){
@@ -40,7 +40,7 @@
     }
 
     /*
-    function questionLog(){
+    function loadQuestions(){
 
     }
     */
