@@ -46,7 +46,7 @@
     */
 
     function loadquestionLevels(){
-        document.querySelector('.content').innerHTML=
+        document.querySelector('.content').innerHTML =
             `
             <div class="quizz-levels">
                 <h2>Agora, decida os níveis!</h2>
