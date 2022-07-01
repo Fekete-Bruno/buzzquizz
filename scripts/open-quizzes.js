@@ -3,6 +3,8 @@ let answers = [];
 let levels = [];
 let minValue = [];
 let rightAnswerCount = 0;
+let answersCount = 0;
+let checkAnswersLength = 0;
 let contador = 2;
 let valueCheck = 0;
 
@@ -86,11 +88,15 @@ function checkAnswer(element) {
     let divQuizzContent = divAnswerContainer.parentNode;
 
     let answersArray = divAnswerContainer.querySelectorAll(".answer");
+
+    let answerContainerArray = divQuizzContent.querySelectorAll(".answer-container");
+
     let lastQuestion = divQuizzContent.querySelector(".answer-container:last-child");
 
         // se a resposta clicada for certa
         if (divAnswer.classList.contains("true")) {
             rightAnswerCount++;
+            answersCount ++;
             divAnswer.querySelector("h3").classList.add("correct-answer");
             divAnswer.classList.add("selected");
             divAnswer.querySelector("img").removeAttribute("onclick");
@@ -116,6 +122,7 @@ function checkAnswer(element) {
 
         // se a resposta clicada for errada (os loops for tem a mesma função dos anteriores)
         } else {
+            answersCount ++;
             divAnswer.querySelector("h3").classList.add("wrong-answer");
             divAnswer.classList.add("selected");
             divAnswer.querySelector("img").removeAttribute("onclick");
@@ -145,7 +152,7 @@ function checkAnswer(element) {
             if (nextAnswerContainer !== null){
                 nextAnswerContainer.scrollIntoView(nextAnswerContainer);
             }
-            addResult(divQuizzContent, lastQuestion, divAnswerContainer);
+            addResult(divQuizzContent, answerContainerArray);
         }, 2000);    
         
         let rightAnswersPercentage;
@@ -165,9 +172,10 @@ function checkAnswer(element) {
         
 }
 
-function addResult(divQuizzContent, lastQuestion, divAnswerContainer){
+function addResult(divQuizzContent, answerContainerArray){
+    
 
-    if (lastQuestion === divAnswerContainer){
+    if (answersCount === answerContainerArray.length){
         divQuizzContent.innerHTML+= 
         `
         <div class="result">
