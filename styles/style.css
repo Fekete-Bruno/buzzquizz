@@ -91,6 +91,10 @@ header{
     margin-left: 10px;
 }
 
+.my-quizzes ion-icon:hover{
+    cursor: pointer;
+}
+
 .all-quizzes{
     display: flex;
     margin-bottom: 10px;

@@ -22,7 +22,7 @@ function listQuizzes(answer) {
 }
 
 function showQuizzes() {
-    /* inicia a parte de conteudi principal */
+    /* inicia a parte de conteudo principal */
     let content = document.querySelector('.content');
     content.innerHTML = '<div class="main-content"></div>';
 
