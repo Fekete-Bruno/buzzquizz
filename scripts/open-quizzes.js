@@ -88,12 +88,15 @@ function checkAnswer(element) {
     let answersArray = divAnswerContainer.querySelectorAll(".answer");
     let lastQuestion = divQuizzContent.querySelector(".answer-container:last-child");
 
+        // se a resposta clicada for certa
         if (divAnswer.classList.contains("true")) {
             rightAnswerCount++;
             divAnswer.querySelector("h3").classList.add("correct-answer");
             divAnswer.classList.add("selected");
             divAnswer.querySelector("img").removeAttribute("onclick");
             divAnswer.querySelector("h3").removeAttribute("onclick");
+            
+            //loop for para adicionar a classe false nos incorretos caso o elemento inicial seja correto
             for (let i = 0; i<answersArray.length; i++){
                 
                 if (answersArray[i].classList.contains("false")){
@@ -101,6 +104,7 @@ function checkAnswer(element) {
                 }
             }
 
+            //loop for para esbranquiçar os outros elementos e remove o onclick de todos
             for (let i = 0; i<answersArray.length; i++){
                 if (answersArray[i].classList.contains("selected")){
                 } else {
@@ -110,11 +114,13 @@ function checkAnswer(element) {
                 }
             }
 
+        // se a resposta clicada for errada (os loops for tem a mesma função dos anteriores)
         } else {
             divAnswer.querySelector("h3").classList.add("wrong-answer");
             divAnswer.classList.add("selected");
             divAnswer.querySelector("img").removeAttribute("onclick");
             divAnswer.querySelector("h3").removeAttribute("onclick");
+            
             for (let i = 0; i<answersArray.length; i++){
 
                 if (answersArray[i].classList.contains("false")){
@@ -123,6 +129,7 @@ function checkAnswer(element) {
                     answersArray[i].querySelector("h3").classList.add("correct-answer");
                 }
             }
+            
             for (let i = 0; i<answersArray.length; i++){    
                 if (answersArray[i].classList.contains("selected")){
                 } else {
