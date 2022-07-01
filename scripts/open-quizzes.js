@@ -191,7 +191,7 @@ function addResult(divQuizzContent, answerContainerArray){
 
         <div>
             <button class="restart-quizz" onclick="restartQuizz()">Reiniciar Quizz</button>
-            <button class="home">Voltar para home</button>
+            <button class="home" onclick="returnHome()">Voltar para home</button>
         </div>
         `;
         showResult(divQuizzContent);
@@ -211,6 +211,10 @@ function showResult(divQuizzContent){
 
 function restartQuizz(){
     openQuizz(restartIndex);
+}
+
+function returnHome() {
+    getQuizzes();
 }
 
 function checkLength(length,question){
