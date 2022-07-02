@@ -56,19 +56,21 @@
         for (let i = 1; i<=quizzInfo.levelsAmount; i++){
             document.querySelector('.quizz-levels').innerHTML +=
             `
-                <div class="level-options">
-                    <div class="level${i}"> Nível ${i}
-                        <div><input type="text" placeholder="Título do nível" ></div>
-                        <div><input type="text" placeholder="% de acerto mínima" ></div>
-                        <div><input type="text" placeholder="URL da imagem do nível" ></div>
-                        <div><textarea rows="5" placeholder="Descrição do nível"></textarea></div>
-                    </div>    
-                </div>
-            `; 
+            <div class="level-options">
+                <h2>Nível ${i}</h2> 
+                <ion-icon name="create-outline"></ion-icon>
+                <div class="level${i}"> 
+                    <div><input type="text" placeholder="Título do nível" ></div>
+                    <div><input type="text" placeholder="% de acerto mínima" ></div>
+                    <div><input type="text" placeholder="URL da imagem do nível" ></div>
+                    <div><textarea rows="5" placeholder="Descrição do nível"></textarea></div>
+                </div>    
+            </div>
+            `;
         }
         document.querySelector('.quizz-levels').innerHTML += 
         `
-            <button onclick="">FinalizarQuizz</button>
+        <button onclick="">FinalizarQuizz</button>
         `
     }
 
