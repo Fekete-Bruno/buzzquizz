@@ -1,4 +1,4 @@
-    let inputs, quizzInfo, levelInfo, lastSelectedLevelDiv, lastSelectedLevelIcon;
+    let inputs, quizzInfo, levelInfo, lastSelectedDiv, lastSelectedIcon;
     let questionsInfo = [];
 
     function createQuizz(){
@@ -80,6 +80,8 @@
         
         console.log(questionsInfo);
 
+        loadquestionLevels();
+
     }
 
     
@@ -95,10 +97,13 @@
             document.querySelector('.quizz-questions').innerHTML +=
             `
                 <div class="question-options">
-                
-                    <div class="question${i}">
+                    <h2>Pergunta ${i}</h2>  
+                    <ion-icon name="create-outline" onclick="editInfo(this)"></ion-icon> 
+                    <div class="question${i} hidden">
+
+                        
                     
-                        <h2>Pergunta ${i}</h2>  
+                        
                         <div><input type="text" placeholder="Texto da pergunta" ></div>
                         <div><input type="text" placeholder="Cor de fundo da pergunta" ></div>
 
@@ -141,7 +146,7 @@
             `
             <div class="level-options">
                 <h2>Nível ${i}</h2>
-                <ion-icon name="create-outline" onclick="editLevelInfo(this)"></ion-icon>
+                <ion-icon name="create-outline" onclick="editInfo(this)"></ion-icon>
                 <div class="level${i} hidden" > 
                     <div><input type="text" placeholder="Título do nível" ></div>
                     <div><input type="text" placeholder="% de acerto mínima" ></div>
@@ -158,21 +163,21 @@
         `
     }
 
-    function editLevelInfo(ionIcon){
-        if (lastSelectedLevelIcon !== undefined){
-            lastSelectedLevelIcon.classList.remove("hidden");
+    function editInfo(ionIcon){
+        if (lastSelectedIcon !== undefined){
+            lastSelectedIcon.classList.remove("hidden");
         }
 
-        if (lastSelectedLevelDiv !== undefined){
-            lastSelectedLevelDiv.classList.add("hidden");
+        if (lastSelectedDiv !== undefined){
+            lastSelectedDiv.classList.add("hidden");
         }
 
-        let levelOptions = ionIcon.nextElementSibling;
-        console.log(levelOptions);
-        levelOptions.classList.remove("hidden");
+        let Options = ionIcon.nextElementSibling;
+        console.log(Options);
+        Options.classList.remove("hidden");
         ionIcon.classList.add("hidden");
-        lastSelectedLevelIcon = ionIcon;
-        lastSelectedLevelDiv = levelOptions;
+        lastSelectedIcon = ionIcon;
+        lastSelectedDiv = Options;
     }
 
     function checkLevels (){

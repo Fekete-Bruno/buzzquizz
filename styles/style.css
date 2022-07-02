@@ -395,6 +395,8 @@ h3{
 }
 
 .question-options{
+    width: 80%;
+    position: relative;
     margin:10px;
     padding: 10px;
     background: #FFFFFF;
@@ -402,9 +404,23 @@ h3{
 }
 .question-options input{
     font-size: 19px;
-    width:600px;
-    margin:10px;
+    width:99%;
+    margin:10px auto;
     padding:10px;
+}
+
+.question-options ion-icon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.question-options h2{
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
 }
 
 .quizz-questions button{
@@ -448,14 +464,14 @@ h3{
 }
 .level-options input{
     font-size: 19px;
-    width:600px;
-    margin:10px;
+    width:99%;
+    margin:10px auto;
     padding:10px;
 }
 .level-options textarea{
     font-size: 19px;
-    width:600px;
-    margin:10px;
+    width:99%;
+    margin:10px auto;
     padding:10px;
 }
 
