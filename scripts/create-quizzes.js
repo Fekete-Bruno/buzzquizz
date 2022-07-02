@@ -52,12 +52,28 @@
             document.querySelector('.quizz-questions').innerHTML +=
             `
                 <div class="question-options">
-                    <div class="question${i}"> Pergunta ${i}
+                
+                    <div class="question${i}">
+                    
+                        <h2>Pergunta ${i}</h2>  
                         <div><input type="text" placeholder="Texto da pergunta" ></div>
                         <div><input type="text" placeholder="Cor de fundo da pergunta" ></div>
-                        <div><input type="text" placeholder="URL da imagem do nível" ></div>
-                        <div><input type="text" placeholder="Descrição do nível"></textarea></div>
-                    </div>    
+
+                        <h2>Resposta correta</h2>
+                        <div><input type="text" placeholder="Resposta correta" ></div>
+                        <div><input type="text" placeholder="URL da imagem" ></div>
+
+                        <h2>Resposta incorretas</h2>
+                        <div><input type="text" placeholder="Resposta incorreta 1" ></div>
+                        <div><input type="text" placeholder="URL da imagem 1" ></div>
+
+                        <div><input type="text" placeholder="Resposta incorreta 2" ></div>
+                        <div><input type="text" placeholder="URL da imagem 2" ></div>
+
+                        <div><input type="text" placeholder="Resposta incorreta 3" ></div>
+                        <div><input type="text" placeholder="URL da imagem 3" ></div>
+                    </div>
+
                 </div>
             `; 
         }
