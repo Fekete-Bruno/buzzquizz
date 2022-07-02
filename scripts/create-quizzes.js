@@ -1,5 +1,8 @@
     let inputs;
     let quizzInfo;
+    let lastSelectedLevelIcon;
+    let lastSelectedLevelDiv;
+
     function createQuizz(){
         console.log('Criando Quiz...');
         loadQuizzCreation();
@@ -97,13 +100,13 @@
             document.querySelector('.quizz-levels').innerHTML +=
             `
             <div class="level-options">
-                <h2>Nível ${i}</h2> 
-                <ion-icon name="create-outline"></ion-icon>
-                <div class="level${i}"> 
+                <h2>Nível ${i}</h2>
+                <ion-icon name="create-outline" onclick="editLevelInfo(this)"></ion-icon>
+                <div class="level${i} hidden" > 
                     <div><input type="text" placeholder="Título do nível" ></div>
                     <div><input type="text" placeholder="% de acerto mínima" ></div>
                     <div><input type="text" placeholder="URL da imagem do nível" ></div>
-                    <div><textarea rows="5" placeholder="Descrição do nível"></textarea></div>
+                    <div><textarea rows="6" placeholder="Descrição do nível"></textarea></div>
                 </div>    
             </div>
             `;
@@ -114,7 +117,23 @@
         `
     }
 
-   
+    function editLevelInfo(ionIcon){
+        if (lastSelected !== undefined){
+            lastSelected.classList.remove("hidden");
+        }
+
+        if (lastSelected2 !== undefined){
+            lastSelected2.classList.add("hidden");
+        }
+
+        let levelOptions = ionIcon.nextElementSibling;
+        console.log(levelOptions);
+        levelOptions.classList.remove("hidden");
+        ionIcon.classList.add("hidden");
+        lastSelectedLevelIcon = ionIcon;
+        lastSelectedLevelDiv = levelOptions;
+    }
+
     function isUrlValid(userInput) {
         let res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
         if(res == null){    
