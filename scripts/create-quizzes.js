@@ -1,7 +1,4 @@
-    let inputs;
-    let quizzInfo;
-    let lastSelectedLevelIcon;
-    let lastSelectedLevelDiv;
+    let inputs, quizzInfo, levelInfo, lastSelectedLevelDiv, lastSelectedLevelIcon;
 
     function createQuizz(){
         console.log('Criando Quiz...');
@@ -71,19 +68,21 @@
             </div>
             `;
         }
+
         document.querySelector('.quizz-levels').innerHTML += 
         `
-        <button onclick="">FinalizarQuizz</button>
+        <button onclick="checkLevels()">FinalizarQuizz</button>
         `
     }
 
     function editLevelInfo(ionIcon){
-        if (lastSelected !== undefined){
-            lastSelected.classList.remove("hidden");
+
+        if (lastSelectedLevelIcon !== undefined){
+            lastSelectedLevelIcon.classList.remove("hidden");
         }
 
-        if (lastSelected2 !== undefined){
-            lastSelected2.classList.add("hidden");
+        if (lastSelectedLevelDiv !== undefined){
+            lastSelectedLevelDiv.classList.add("hidden");
         }
 
         let levelOptions = ionIcon.nextElementSibling;
@@ -92,6 +91,29 @@
         ionIcon.classList.add("hidden");
         lastSelectedLevelIcon = ionIcon;
         lastSelectedLevelDiv = levelOptions;
+    }
+
+    function checkLevels (){
+
+        for (let i = 1; i < quizzInfo.levelsAmount; i++){
+
+            levelInfo = document.querySelector(`.level${i}`);
+            let levelInputs = levelInfo.querySelectorAll('input');
+            let levelTextarea = levelInfo.querySelectorAll('textarea');
+            
+            levelInfo = {
+                title: levelInputs[0].value,
+                levelPercentage: Number(levelInputs[1].value),
+                image : levelInputs[2].value,
+                levelDescription: Number(levelTextarea[0].value)
+            }
+        }
+
+        if(levelInfo.title.length<10 || !isUrlValid(levelInfo.image) || levelInfo.levelDescription<30 || levelInfo.levelPercentage<0 || levelInfo.levelPercentage>100){
+            alert('Verifique as suas configurações de level novamente...');
+        } else {
+            console.log("deu bom");
+        }
     }
 
     function isUrlValid(userInput) {
