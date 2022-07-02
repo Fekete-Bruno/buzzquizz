@@ -1,7 +1,10 @@
     let inputs;
     let quizzInfo;
+    let questionsInfo;
     let lastSelectedLevelIcon;
     let lastSelectedLevelDiv;
+
+    questionsInfo = [];
 
     function createQuizz(){
         console.log('Criando Quiz...');
@@ -21,7 +24,7 @@
                 </div>
 
                 <button onclick="checkStart()">Prosseguir para criar perguntas</button>
-            </div>
+            </div>  
             `; 
     }
 
@@ -29,16 +32,58 @@
         inputs = document.querySelectorAll('input');
         quizzInfo = {
             title: inputs[0].value,
-            URL : inputs[1].value,
+            image : inputs[1].value,
             questionAmount: Number(inputs[2].value),
             levelsAmount: Number(inputs[3].value)
         }
         
-        if(quizzInfo.title.length<20 || quizzInfo.title.length>65 || !isUrlValid(quizzInfo.URL) || quizzInfo.questionAmount<3 || quizzInfo.levelsAmount<2){
+        if(quizzInfo.title.length<20 || quizzInfo.title.length>65 || !isUrlValid(quizzInfo.image) || quizzInfo.questionAmount<3 || quizzInfo.levelsAmount<2){
             alert('Verifique as suas configurações de quiz novamente...');
         } else {
             loadQuestions();
         }
+
+    }
+
+    function checkQuestions(){
+
+        for (let index = 1; index <= quizzInfo.questionAmount; index++) {
+
+            let questionN = document.querySelector(`.question${index}`);
+            inputs = questionN.querySelectorAll('input');
+            
+
+            questionsInfo.push({
+                title: inputs[0].value,
+                color : inputs[1].value,
+                answers:[
+                    {
+                        text: inputs[2].value,
+                        image: inputs[3].value,
+                        isCorrectAnswer: true
+                    },
+                    {
+                        text: inputs[4].value,
+                        image: inputs[5].value,
+                        isCorrectAnswer: false
+                    },
+                    {
+                        text: inputs[6].value,
+                        image: inputs[7].value,
+                        isCorrectAnswer: false
+                    },
+                    {
+                        text: inputs[8].value,
+                        image: inputs[9].value,
+                        isCorrectAnswer: false
+                    }
+                ]
+            });
+            
+        }
+
+        
+        console.log(questionsInfo);
 
     }
 
@@ -83,7 +128,7 @@
 
         document.querySelector('.quizz-questions').innerHTML += 
         `
-            <button onclick="loadquestionLevels();">Continuar...</button>
+            <button onclick="checkQuestions();">Continuar...</button>
         `
     }
     
@@ -118,12 +163,12 @@
     }
 
     function editLevelInfo(ionIcon){
-        if (lastSelected !== undefined){
-            lastSelected.classList.remove("hidden");
+        if (lastSelectedLevelIcon !== undefined){
+            lastSelectedLevelIcon.classList.remove("hidden");
         }
 
-        if (lastSelected2 !== undefined){
-            lastSelected2.classList.add("hidden");
+        if (lastSelectedLevelDiv !== undefined){
+            lastSelectedLevelIcon.classList.add("hidden");
         }
 
         let levelOptions = ionIcon.nextElementSibling;
