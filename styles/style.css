@@ -402,6 +402,7 @@ h3{
 }
 
 .level-options{
+    width: 80%;
     position: relative;
     margin:10px;
     padding: 10px;
