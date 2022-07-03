@@ -1,6 +1,7 @@
     let inputs, quizzInfo, lastSelectedDiv, lastSelectedIcon;
     let questionsInfo = [];
     let levelsInfo = [];
+    let checkIfAnyLevelIsZero = 0;
 
     function createQuizz(){
         console.log('Criando Quiz...');
@@ -192,7 +193,8 @@
     }
 
     function checkLevels (){
-        let checkPercentage = [];
+        let minValueEqualsZeroCounter = 0;
+
         for (let i = 1; i <= quizzInfo.levelsAmount; i++){
 
             levelsInfo = document.querySelector(`.level${i}`);
@@ -207,17 +209,22 @@
                 text: levelTextarea[0].value
             },
 
-            console.log(levelsInfo[i-1]);
+            console.log (levelsInfo[i-1]);
+            console.log (minValueEqualsZeroCounter);
+            
+            if (levelsInfo[i-1].minValue === 0){
+                minValueEqualsZeroCounter++;
+                console.log("entrou no if");
+            }
 
-            if(levelsInfo[i-1].title.length<10 || !isUrlValid(levelsInfo[i-1].image) || levelsInfo[i-1].text<30 || levelsInfo[i-1].minValue<0 || levelsInfo[i-1].minValue>100 || isNaN(levelsInfo[i-1].minValue)){
+            if(levelsInfo[i-1].title.length<10 || !isUrlValid(levelsInfo[i-1].image) || levelsInfo[i-1].text<30 || levelsInfo[i-1].minValue<0 || levelsInfo[i-1].minValue>100 || isNaN(levelsInfo[i-1].minValue || minValueEqualsZeroCounter === 0)){
                 alert('Verifique as suas configurações de level novamente...');
             } else {
                 console.log("deu bom");
             }
         }
-        
     }
-
+        
     function isUrlValid(userInput) {
         let res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
         if(res == null){    
