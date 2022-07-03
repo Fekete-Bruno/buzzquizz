@@ -6,6 +6,10 @@ body{
     box-sizing: border-box;
 }
 
+ion-icon:hover{
+    cursor: pointer;
+}
+
 button:hover{
     cursor: pointer;
 }
@@ -89,10 +93,6 @@ header{
     height: 31px;
     width: 30px;
     margin-left: 10px;
-}
-
-.my-quizzes ion-icon:hover{
-    cursor: pointer;
 }
 
 .all-quizzes{

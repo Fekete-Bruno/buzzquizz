@@ -49,9 +49,35 @@ function checkQuestions() {
             if (!isHexColor(element.color)){
                 condition = false;
             }
+            if (element.answers[0].text.length===0){
+                condition = false;
+            }
+            if (!isUrlValid(element.answers[0].image)){
+                condition = false;
+            }
+            if (element.answers[1].text.length===0){
+                condition = false;
+            }
+            if (!isUrlValid(element.answers[1].image)){
+                condition = false;
+            }
+            for (let i = 2; i < 4; i++) {
+                if (element.answers[i].text.length!==0){    
+                    if (!isUrlValid(element.answers[i].image)){
+                        condition = false;
+                    }
+                }
+            }
+            
+
+            
     });
-    console.log(condition);
-    loadLevels();
+    if (condition) {
+        loadLevels()
+    } else {
+        alert('Verifique os campos novamente...')
+    }
+    //loadLevels();
 }
     
 function loadQuestions(){
