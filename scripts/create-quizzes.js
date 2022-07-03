@@ -40,8 +40,8 @@
 
     }
 
-    function checkQuestions(){
-
+    function saveQuestions(){
+        questionsInfo = [];
         for (let index = 1; index <= quizzInfo.questionAmount; index++) {
 
             let questionN = document.querySelector(`.question${index}`);
@@ -79,9 +79,21 @@
 
         
         console.log(questionsInfo);
+        checkQuestions();
+    }
 
-        loadquestionLevels();
-
+    function checkQuestions() {
+        let condition = true;
+        questionsInfo.forEach(element => {
+                if (element.title.length<20){
+                    condition = false;
+                }
+                if (!isHexColor(element.color)){
+                    condition = false;
+                }
+        });
+        console.log(condition);
+        loadLevels();
     }
 
     
@@ -127,12 +139,12 @@
 
         document.querySelector('.quizz-questions').innerHTML += 
         `
-            <button onclick="checkQuestions();">Continuar...</button>
+            <button onclick="saveQuestions();">Continuar...</button>
         `
     }
     
 
-    function loadquestionLevels(){
+    function loadLevels(){
         document.querySelector('.content').innerHTML = 
         `
         <div class="quizz-levels"> 
@@ -209,4 +221,9 @@
         else{
             return true;
         }
+    }
+
+    function isHexColor(hex){
+        let reg=/^#([0-9a-f]{3}){1,2}$/i;
+        return reg.test(hex);
     }
