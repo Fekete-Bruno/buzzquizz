@@ -1,5 +1,6 @@
-    let inputs, quizzInfo, levelInfo, lastSelectedDiv, lastSelectedIcon;
+    let inputs, quizzInfo, lastSelectedDiv, lastSelectedIcon;
     let questionsInfo = [];
+    let levelsInfo = [];
 
     function createQuizz(){
         console.log('Criando Quiz...');
@@ -191,26 +192,30 @@
     }
 
     function checkLevels (){
+        let checkPercentage = [];
+        for (let i = 1; i <= quizzInfo.levelsAmount; i++){
 
-        for (let i = 1; i < quizzInfo.levelsAmount; i++){
-
-            levelInfo = document.querySelector(`.level${i}`);
-            let levelInputs = levelInfo.querySelectorAll('input');
-            let levelTextarea = levelInfo.querySelectorAll('textarea');
+            levelsInfo = document.querySelector(`.level${i}`);
+            let levelInputs = levelsInfo.querySelectorAll('input');
+            let levelTextarea = levelsInfo.querySelectorAll('textarea');
             
-            levelInfo = {
+            levelsInfo[i-1] =
+            {
                 title: levelInputs[0].value,
-                levelPercentage: Number(levelInputs[1].value),
+                minValue: Number(levelInputs[1].value),
                 image : levelInputs[2].value,
-                levelDescription: Number(levelTextarea[0].value)
+                text: levelTextarea[0].value
+            },
+
+            console.log(levelsInfo[i-1]);
+
+            if(levelsInfo[i-1].title.length<10 || !isUrlValid(levelsInfo[i-1].image) || levelsInfo[i-1].text<30 || levelsInfo[i-1].minValue<0 || levelsInfo[i-1].minValue>100 || isNaN(levelsInfo[i-1].minValue)){
+                alert('Verifique as suas configurações de level novamente...');
+            } else {
+                console.log("deu bom");
             }
         }
-
-        if(levelInfo.title.length<10 || !isUrlValid(levelInfo.image) || levelInfo.levelDescription<30 || levelInfo.levelPercentage<0 || levelInfo.levelPercentage>100){
-            alert('Verifique as suas configurações de level novamente...');
-        } else {
-            console.log("deu bom");
-        }
+        
     }
 
     function isUrlValid(userInput) {
