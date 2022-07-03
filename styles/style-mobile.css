@@ -20,6 +20,10 @@
         overflow-x: hidden;
     }
 
+    .create-quizz{
+        width: 90vw;
+    }
+
     .quizz {
         margin-bottom: 10px;
         margin-right: 0;
@@ -70,14 +74,31 @@
         }
 
     .question-title{
-        width: 85%;
+        width: 90%;
         font-size: 19px;
         padding: 20px;
     }
 
+    .answer-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:90vw;
+    }
+
+    .answer{
+        width:90vw;
+    }
 
     .answer img {
-        width: 150px;
+        width:80%;
+    }
+
+    .success-screen{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     h3{

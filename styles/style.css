@@ -492,6 +492,21 @@ h3{
     top: 20px;
 }
 
+/* TELA 3.4 SUCESSO*/
+.success-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.success-screen h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin:20px;
+}
+
 
 /* CLASSE GLOBAL PARA ESCONDER ELEMENTOS */
 .hidden{
