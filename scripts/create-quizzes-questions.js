@@ -68,16 +68,17 @@ function checkQuestions() {
                     }
                 }
             }
-            
-
-            
     });
+
     if (condition) {
         loadLevels()
     } else {
         alert('Verifique os campos novamente...')
     }
-    //loadLevels();
+    
+
+    // apenas para testar
+    loadLevels();
 }
     
 function loadQuestions(){
