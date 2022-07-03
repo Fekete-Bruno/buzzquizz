@@ -40,7 +40,6 @@ function saveQuestions(){
     checkQuestions();
 }
 
-
 function checkQuestions() {
     let condition = true;
     questionsInfo.forEach(element => {
@@ -54,14 +53,12 @@ function checkQuestions() {
     console.log(condition);
     loadLevels();
 }
-
-
     
 function loadQuestions(){
     document.querySelector('.content').innerHTML = 
     `
     <div class="quizz-questions"> 
-        <h2>Agora, decida os níveis!</h2>
+        <h2>Agora, escreva suas perguntas!</h2>
     </div>
     `;
 
@@ -102,4 +99,3 @@ function loadQuestions(){
         <button onclick="saveQuestions();">Continuar...</button>
     `
 }
-

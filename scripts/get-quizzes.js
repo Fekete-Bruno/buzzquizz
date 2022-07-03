@@ -1,6 +1,6 @@
 let quizzList = [];
 let userQuizzList = [];
-const userId = 46; /* Apenas para testar */
+const userId = 400; /* Apenas para testar */
 
 function getQuizzes() {
     quizzList = [];
