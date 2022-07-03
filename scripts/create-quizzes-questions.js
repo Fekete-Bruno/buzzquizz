@@ -5,7 +5,6 @@ function saveQuestions(){
         let questionN = document.querySelector(`.question${index}`);
         inputs = questionN.querySelectorAll('input');
         
-        
         questionsInfo.push({
             title: inputs[0].value,
             color : inputs[1].value,
@@ -32,11 +31,23 @@ function saveQuestions(){
                 }
             ]
         });
-        
     }
     
+    emptyAnswerRemover();
     console.log(questionsInfo);
     checkQuestions();
+}
+
+function emptyAnswerRemover(){
+    questionsInfo.forEach(question => {
+        question.answers = question.answers.filter(checkForEmpty)
+    });
+}
+
+function checkForEmpty(ans) {
+    if (ans.text.length!==0 && ans.image.length!==0){
+        return true;
+    }
 }
 
 function checkQuestions() {
@@ -60,12 +71,16 @@ function checkQuestions() {
             if (!isUrlValid(element.answers[1].image)){
                 condition = false;
             }
-            for (let i = 2; i < 4; i++) {
-                if (element.answers[i].text.length!==0){    
-                    if (!isUrlValid(element.answers[i].image)){
+            if(element.answers.length === 3){   
+                    if (!isUrlValid(element.answers[2].image)){
                         condition = false;
                     }
-                }
+            }
+
+            if(element.answers.length === 4){ 
+                    if (!isUrlValid(element.answers[3].image)){
+                        condition = false;
+                    }
             }
     });
 
