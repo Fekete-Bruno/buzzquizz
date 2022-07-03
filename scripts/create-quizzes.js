@@ -99,11 +99,9 @@
                 <div class="question-options">
                     <h2>Pergunta ${i}</h2>  
                     <ion-icon name="create-outline" onclick="editInfo(this)"></ion-icon> 
+                    
                     <div class="question${i} hidden">
 
-                        
-                    
-                        
                         <div><input type="text" placeholder="Texto da pergunta" ></div>
                         <div><input type="text" placeholder="Cor de fundo da pergunta" ></div>
 
@@ -120,6 +118,7 @@
 
                         <div><input type="text" placeholder="Resposta incorreta 3" ></div>
                         <div><input type="text" placeholder="URL da imagem 3" ></div>
+
                     </div>
 
                 </div>
@@ -173,7 +172,6 @@
         }
 
         let Options = ionIcon.nextElementSibling;
-        console.log(Options);
         Options.classList.remove("hidden");
         ionIcon.classList.add("hidden");
         lastSelectedIcon = ionIcon;
