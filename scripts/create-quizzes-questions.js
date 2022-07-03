@@ -59,16 +59,14 @@ function checkQuestions() {
             if (!isHexColor(element.color)){
                 condition = false;
             }
-            if (element.answers[0].text.length===0){
+            if(typeof(element.answers[0])==='undefined'){
+                condition = false;
+            } else if (element.answers[0].text.length===0 || !isUrlValid(element.answers[0].image)){
                 condition = false;
             }
-            if (!isUrlValid(element.answers[0].image)){
+            if(typeof(element.answers[1])==='undefined'){
                 condition = false;
-            }
-            if (element.answers[1].text.length===0){
-                condition = false;
-            }
-            if (!isUrlValid(element.answers[1].image)){
+            } else if (element.answers[1].text.length===0 || !isUrlValid(element.answers[1].image)){
                 condition = false;
             }
             if(element.answers.length === 3){   
