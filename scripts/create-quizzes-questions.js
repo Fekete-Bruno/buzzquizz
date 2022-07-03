@@ -76,9 +76,8 @@ function checkQuestions() {
         alert('Verifique os campos novamente...')
     }
     
-
     // apenas para testar
-    loadLevels();
+    // loadLevels();
 }
     
 function loadQuestions(){

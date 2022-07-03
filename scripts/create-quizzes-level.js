@@ -86,7 +86,7 @@ function checkLevels() {
     });
 
     if (condition) {
-        console.log("vai pra 3.4")
+        preparePost();
     } else {
         alert('Verifique os campos novamente...')
     }
