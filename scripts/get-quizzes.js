@@ -1,3 +1,4 @@
+const apiUrl = 'https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes';
 let quizzList = [];
 let userQuizzList = [];
 const userId = 400; /* Apenas para testar */
@@ -5,7 +6,7 @@ const userId = 400; /* Apenas para testar */
 function getQuizzes() {
     quizzList = [];
     userQuizzList = [];
-    const promise = axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes');
+    const promise = axios.get(apiUrl);
     promise.catch(errorLog);
     promise.then(listQuizzes);
 }

@@ -5,7 +5,7 @@ function saveQuestions(){
         let questionN = document.querySelector(`.question${index}`);
         inputs = questionN.querySelectorAll('input');
         
-
+        
         questionsInfo.push({
             title: inputs[0].value,
             color : inputs[1].value,
@@ -34,7 +34,6 @@ function saveQuestions(){
         });
         
     }
-
     
     console.log(questionsInfo);
     checkQuestions();
