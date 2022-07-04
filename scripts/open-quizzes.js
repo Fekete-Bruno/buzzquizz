@@ -201,7 +201,7 @@ function addResult(divQuizzContent, answerContainerArray){
             <h2>${levels[valueCheck].text}</h2>
         </div>
 
-        <div>
+        <div class="endOfPageButtons">
             <button class="restart-quizz" onclick="restartQuizz()">Reiniciar Quizz</button>
             <button class="home" onclick="returnHome()">Voltar para home</button>
         </div>

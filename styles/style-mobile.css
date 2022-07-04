@@ -74,25 +74,21 @@
         }
 
     .question-title{
-        width: 90%;
+        width: 100%;
         font-size: 19px;
         padding: 20px;
     }
 
     .answer-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width:90vw;
+        width:100%;
     }
 
     .answer{
-        width:90vw;
+        width:40%;
     }
 
     .answer img {
-        width:80%;
+        width:100%;
     }
 
     .success-screen{
@@ -103,6 +99,62 @@
 
     h3{
         font-size: 13px;
+        text-align: center;
+    }
+
+    /*PÁGINA 3*/
+
+    .quizz-options{
+        width: 100%;
+    }
+
+    .quizz-create button{
+        width: 90%;
+    }
+
+    .question-options{
+        width: 100%;
+    }
+
+    .quizz-questions button{
+        width: 90%;
+    }
+
+    .result {
+        width: 100%;
+    }
+    
+    .endOfPageButtons{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .restart-quizz{
+        width: 100%;
+    }
+    
+    .home{
+        width: 100%;
+        padding-left: 10px;
+    }
+    
+    .level-options{
+        width: 100%;
+    }
+
+    .quizz-levels button{
+        width: 90%;
+    }
+
+    .success-screen {
+        width: 100%;
+    }
+    .quizz{
+        width: 90%;
     }
 
 }

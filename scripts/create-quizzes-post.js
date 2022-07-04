@@ -29,7 +29,7 @@ function successScreen(){
                             <img src="${userQuizzList[userQuizzList.length-1].image}" alt="">
                             <h1>${userQuizzList[userQuizzList.length-1].title}</h1>
                         </div>
-                        <div>
+                        <div class="endOfPageButtons">
                             <button class="restart-quizz" onclick="openUserQuizz(${userQuizzList.length-1});">Acessar Quizz</button>
                             <button class="home" onclick="returnHome();">Voltar para home</button>
                         </div>

@@ -134,6 +134,6 @@ function loadQuestions(){
 
     document.querySelector('.quizz-questions').innerHTML += 
     `
-        <button onclick="saveQuestions();">Continuar...</button>
+        <button onclick="saveQuestions();">Prosseguir para criar níveis</button>
     `
 }
