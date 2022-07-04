@@ -39,7 +39,7 @@ function openUserQuizz(index){
         quizzContent.innerHTML += ans; 
     });
 
-
+    document.querySelector('.answer-container').classList.remove('hidden')
     window.scrollTo(0,0);
 
 }
@@ -74,7 +74,9 @@ function openQuizz (index){
         question.answers.sort(sorter);
         let ans = checkLength(question.answers.length,question);
         quizzContent.innerHTML += ans; 
-    });    
+    }); 
+
+    document.querySelector('.answer-container').classList.remove('hidden')   
 
     window.scrollTo(0,0);
 }
@@ -166,6 +168,7 @@ function checkAnswer(element) {
             let nextAnswerContainer = divQuizzContent.querySelector(`.answer-container:nth-child(${contador+1})`);
             contador++;
             if (nextAnswerContainer !== null){
+                nextAnswerContainer.classList.remove('hidden');
                 nextAnswerContainer.scrollIntoView(nextAnswerContainer);
             }
             addResult(divQuizzContent, answerContainerArray);
@@ -237,7 +240,7 @@ function checkLength(length,question){
         case 4:
             return(
                 `
-                <div class="answer-container">
+                <div class="answer-container hidden">
                     <div class="question-title">
                         ${question.title}
                     </div>
@@ -268,7 +271,7 @@ function checkLength(length,question){
         case 3:
             return(
                 `
-                <div class="answer-container">
+                <div class="answer-container hidden">
                     <div class="question-title">
                         ${question.title}
                     </div>
@@ -294,7 +297,7 @@ function checkLength(length,question){
             case 2:
                 return(
                     `
-                    <div class="answer-container">
+                    <div class="answer-container hidden">
                         <div class="question-title">
                             ${question.title}
                         </div>
