@@ -17,13 +17,26 @@ function listQuizzes(answer) {
     if (userIdserialized !== null){
         userId = JSON.parse(userIdserialized);
     }
+
     answer.data.forEach(quiz => {
-        if (isUserQuizz(quiz)) {
-            userQuizzList.push(quiz);
-        } else {
+        if (!isUserQuizz(quiz)) {
             quizzList.push(quiz);
         }
     });
+    saveUserQuizzList();
+}
+
+function saveUserQuizzList() {
+    userId.forEach(idNumber => {
+        const promise = axios.get(`${apiUrl}/${idNumber}`);
+        promise.catch(errorLog)
+        promise.then(pushUserQuizz)
+    });
+    
+}
+
+function pushUserQuizz(answer){
+    userQuizzList.push(answer.data);
     showQuizzes();
 }
 
