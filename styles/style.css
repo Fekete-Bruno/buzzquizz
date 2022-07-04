@@ -76,13 +76,13 @@ header{
 .user-quizz-container{
     display: flex;
     width: 80%;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 .my-quizzes{
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 80%;
     font-size: 20px;
     font-weight: 700;
@@ -97,7 +97,7 @@ header{
 
 .all-quizzes{
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 80%;
     font-size: 20px;
     font-weight: 700;
