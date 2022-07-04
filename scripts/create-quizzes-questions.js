@@ -103,7 +103,7 @@ function loadQuestions(){
     for (let i = 1; i<=quizzInfo.questionAmount; i++){
         document.querySelector('.quizz-questions').innerHTML +=
         `
-            <div class="question-options">
+            <div class="question-options" onclick="editDivInfo(this)">
                 <h2>Pergunta ${i}</h2>  
                 <ion-icon name="create-outline" onclick="editInfo(this)"></ion-icon> 
                 

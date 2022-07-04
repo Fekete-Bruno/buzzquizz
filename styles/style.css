@@ -367,11 +367,14 @@ h3{
 }
 .quizz-options input{
     font-size: 19px;
-    font-style: italic;
     width:98%;
     margin:10px;
     padding:10px;
 }
+.quizz-options input::placeholder{
+    font-style: italic;
+}
+
 .quizz-create button{
     font-size: 21px;
     color: white;
@@ -408,10 +411,12 @@ h3{
 }
 .question-options input{
     font-size: 19px;
-    font-style: italic;
     width:99%;
     margin:10px auto;
     padding:10px;
+}
+.question-options input::placeholder{
+    font-style: italic;
 }
 
 .question-options ion-icon{
@@ -471,16 +476,22 @@ h3{
 }
 .level-options input{
     font-size: 19px;
-    font-style: italic;
     width:99%;
     margin:10px auto;
     padding:10px;
 }
+.level-options input::placeholder{
+    font-style: italic;
+}
+
 .level-options textarea{
     font-size: 19px;
     width:99%;
     margin:10px auto;
     padding:10px;
+}
+.level-options textarea::placeholder{
+    font-style: italic;
 }
 
 .level-options h2{

@@ -42,6 +42,12 @@
 
     }
 
+    function editDivInfo(divOptions){
+        let ionIcon = divOptions.querySelector('ion-icon');
+
+        editInfo(ionIcon);
+    }
+
     function editInfo(ionIcon){
         if (lastSelectedIcon !== undefined){
             lastSelectedIcon.classList.remove("hidden");

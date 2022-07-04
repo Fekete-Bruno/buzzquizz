@@ -9,7 +9,7 @@ function loadLevels(){
     for (let i = 1; i<=quizzInfo.levelsAmount; i++){
         document.querySelector('.quizz-levels').innerHTML +=
         `
-        <div class="level-options">
+        <div class="level-options" onclick="editDivInfo(this)">
             <h2>Nível ${i}</h2>
             <ion-icon name="create-outline" onclick="editInfo(this)"></ion-icon>
             <div class="level${i} hidden" > 
@@ -58,9 +58,11 @@ function saveLevels (){
     
 function checkLevels() {
     let condition = true;
+    let checkLevelValues = [];
 
     levelsInfo.forEach(element => {
-        
+        checkLevelValues.push(element.minValue);
+
         if (element.title.length<10){
             condition = false;
         }
@@ -83,6 +85,11 @@ function checkLevels() {
             condition = false;
         }
 
+        for (let i = 0; i<checkLevelValues.length; i++){
+            if (checkLevelValues[i] === checkLevelValues[i+1]){
+                condition = false;
+            }
+        }
     });
 
     if (condition) {
