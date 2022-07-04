@@ -523,6 +523,9 @@ h3{
     margin:20px;
 }
 
+.loading{
+    width:25vw;
+}
 
 /* CLASSE GLOBAL PARA ESCONDER ELEMENTOS */
 .hidden{

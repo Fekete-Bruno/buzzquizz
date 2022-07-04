@@ -1,5 +1,7 @@
 function preparePost(){
 
+    loadingScreen();
+
     let postObject = {
         title: quizzInfo.title,
         image: quizzInfo.image,

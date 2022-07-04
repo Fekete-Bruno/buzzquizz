@@ -4,6 +4,7 @@ let userQuizzList = [];
 let userId = [];
 
 function getQuizzes() {
+    loadingScreen();
     quizzList = [];
     userQuizzList = [];
     const promise = axios.get(apiUrl);
@@ -95,6 +96,16 @@ function showQuizzes() {
 function errorLog(error) {
 
     alert(error.data);
+}
+
+function loadingScreen() {
+    let content = document.querySelector('.content');
+    content.innerHTML = `
+                        <div class="success-screen">
+                        <h2>CARREGANDO...</h2>
+                        <img class="loading" src="./assets/loading.gif" alt="">
+                        </div>
+                        `;
 }
 
 getQuizzes();
