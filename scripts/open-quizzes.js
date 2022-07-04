@@ -173,9 +173,9 @@ function checkAnswer(element) {
         }, 2000);    
         
         let rightAnswersPercentage;
-        rightAnswersPercentage = Math.round((rightAnswerCount*100)/(contador-1));   
+        rightAnswersPercentage = Math.round((rightAnswerCount*100)/(contador-1));
 
-        if (rightAnswersPercentage>minValue[levels.length-1]){
+        if (rightAnswersPercentage>=minValue[levels.length-1]){
             valueCheck = levels.length-1;
         } else if (rightAnswersPercentage>minValue[levels.length-2]){
             valueCheck = levels.length-2;
