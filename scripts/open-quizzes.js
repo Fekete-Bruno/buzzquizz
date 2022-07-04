@@ -40,8 +40,7 @@ function openUserQuizz(index){
     });
 
 
-    let scrollTop = document.querySelector(".quizz-title");
-    scrollTop.scrollIntoView(scrollTop);
+    window.scrollTo(0,0);
 
 }
 
@@ -77,8 +76,7 @@ function openQuizz (index){
         quizzContent.innerHTML += ans; 
     });    
 
-    let scrollTop = document.querySelector(".quizz-title");
-    scrollTop.scrollIntoView(scrollTop);
+    window.scrollTo(0,0);
 }
 
 function sorter() { 
