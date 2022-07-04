@@ -109,8 +109,6 @@ function checkAnswer(element) {
 
     let answerContainerArray = divQuizzContent.querySelectorAll(".answer-container");
 
-    let lastQuestion = divQuizzContent.querySelector(".answer-container:last-child");
-
         // se a resposta clicada for certa
         if (divAnswer.classList.contains("true")) {
             rightAnswerCount++;
@@ -175,8 +173,8 @@ function checkAnswer(element) {
         }, 2000);    
         
         let rightAnswersPercentage;
-        rightAnswersPercentage = Math.round((rightAnswerCount*100)/answersArray.length);       
-        
+        rightAnswersPercentage = Math.round((rightAnswerCount*100)/(contador-1));   
+
         if (rightAnswersPercentage>minValue[levels.length-1]){
             valueCheck = levels.length-1;
         } else if (rightAnswersPercentage>minValue[levels.length-2]){
@@ -236,12 +234,13 @@ function returnHome() {
 }
 
 function checkLength(length,question){
+
     switch (length) {
         case 4:
             return(
                 `
                 <div class="answer-container hidden">
-                    <div class="question-title">
+                    <div class="question-title" style="background-color:${question.color};">
                         ${question.title}
                     </div>
 
@@ -272,7 +271,7 @@ function checkLength(length,question){
             return(
                 `
                 <div class="answer-container hidden">
-                    <div class="question-title">
+                    <div class="question-title" style="background-color:${question.color};">
                         ${question.title}
                     </div>
 
@@ -298,7 +297,7 @@ function checkLength(length,question){
                 return(
                     `
                     <div class="answer-container hidden">
-                        <div class="question-title">
+                        <div class="question-title" style="background-color:${question.color};">
                             ${question.title}
                         </div>
 

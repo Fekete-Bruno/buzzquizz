@@ -34,7 +34,7 @@ function saveQuestions(){
     }
     
     emptyAnswerRemover();
-    console.log(questionsInfo);
+
     checkQuestions();
 }
 

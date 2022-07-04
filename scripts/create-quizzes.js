@@ -5,7 +5,6 @@
     let minValueEqualsZeroCounter = 0;
 
     function createQuizz(){
-        console.log('Criando Quiz...');
         loadQuizzCreation();
     }
 

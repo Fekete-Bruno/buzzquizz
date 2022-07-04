@@ -93,8 +93,8 @@ function showQuizzes() {
 };
 
 function errorLog(error) {
-    console.log('Deu um erro aqui...');
-    console.log(error.data);
+
+    alert(error.data);
 }
 
 getQuizzes();
