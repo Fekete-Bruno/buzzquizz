@@ -14,6 +14,9 @@ function preparePost(){
 
 function postSuccess(answer) {
     userQuizzList.push(answer.data)
+    userId.push(answer.data.id)
+    const str = JSON.stringify(userId)
+    localStorage.setItem("listaIds",str)
     successScreen();
 }
 
@@ -23,8 +26,8 @@ function successScreen(){
                         <div class="success-screen">
                         <h2>Seu quizz está pronto!</h2>
                         <div class="quizz">
-                            <img src="${userQuizzList[userQuizzList.lenght-1].image}" alt="">
-                            <h1>${userQuizzList[userQuizzList.lenght-1].title}</h1>
+                            <img src="${userQuizzList[userQuizzList.length-1].image}" alt="">
+                            <h1>${userQuizzList[userQuizzList.length-1].title}</h1>
                         </div>
                         <div>
                             <button class="restart-quizz" onclick="openUserQuizz(${userQuizzList.length-1});">Acessar Quizz</button>

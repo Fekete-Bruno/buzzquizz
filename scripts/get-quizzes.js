@@ -1,7 +1,7 @@
 const apiUrl = 'https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes';
 let quizzList = [];
 let userQuizzList = [];
-const userId = 400; /* Apenas para testar */
+let userId = [];
 
 function getQuizzes() {
     quizzList = [];
@@ -12,14 +12,28 @@ function getQuizzes() {
 }
 
 function listQuizzes(answer) {
+    const userIdserialized = localStorage.getItem("listaIds");
+    if (userIdserialized !== null){
+        userId = JSON.parse(userIdserialized);
+    }
     answer.data.forEach(quiz => {
-        if (quiz.id === userId) {
+        if (isUserQuizz(quiz)) {
             userQuizzList.push(quiz);
         } else {
             quizzList.push(quiz);
         }
     });
     showQuizzes();
+}
+
+function isUserQuizz(quiz){
+    let condition = false;
+    userId.forEach(element => {
+        if (quiz.id === element){
+            condition = true
+        }
+    });
+    return condition;
 }
 
 function showQuizzes() {
