@@ -23,7 +23,11 @@ function listQuizzes(answer) {
             quizzList.push(quiz);
         }
     });
-    saveUserQuizzList();
+    if(userId.length!==0){
+        saveUserQuizzList();
+    } else {
+        showQuizzes();
+    }
 }
 
 function saveUserQuizzList() {
